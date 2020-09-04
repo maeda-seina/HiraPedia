@@ -1,40 +1,26 @@
 Rails.application.routes.draw do
+
+  root 'home#top'
+  get 'about' => 'home#about'
+  post '/guest_sign_in' => 'home#guest'
+  resources :users,only: [:show,:edit,:update]
+  resources :relationships,only: [:create,:destroy]
+  resources :post_comments,only: [:create,:destroy]
+  resources :favorites,only: [:create,:destroy]
+  resources :facilities,only: [:index,:show]
+  resources :post
+
+
+
   namespace :admins do
-    get 'facilities/create'
-    get 'facilities/index'
-    get 'facilities/show'
-    get 'facilities/edit'
-    get 'facilities/update'
+    resources :facilities
   end
+
   namespace :users do
-    get 'users/show'
-    get 'users/edit'
-    get 'users/update'
+    resources :facilities,only: [:index,:show]
   end
-  namespace :users do
-    get 'relationships/create'
-    get 'relationships/destroy'
-  end
-  namespace :users do
-    get 'post_comments/create'
-    get 'post_comments/destroy'
-  end
-  namespace :users do
-    get 'favorites/create'
-    get 'favorites/destroy'
-  end
-  namespace :users do
-    get 'facilities/index'
-    get 'facilities/show'
-  end
-  namespace :users do
-    get 'post/index'
-    get 'post/show'
-    get 'post/create'
-    get 'post/update'
-    get 'post/edit'
-    get 'post/destroy'
-  end
+
+
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
