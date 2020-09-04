@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
 
-  root 'home#top'
-  get 'about' => 'home#about'
-  post '/guest_sign_in' => 'home#guest'
-  resources :users,only: [:show,:edit,:update]
-  resources :relationships,only: [:create,:destroy]
-  resources :post_comments,only: [:create,:destroy]
-  resources :favorites,only: [:create,:destroy]
-  resources :facilities,only: [:index,:show]
-  resources :post
+  namespace :users do
+    root 'home#top'
+    get 'about' => 'home#about'
+    post '/guest_sign_in' => 'home#guest'
+    resources :users,only: [:show,:edit,:update]
+    resources :relationships,only: [:create,:destroy]
+    resources :post_comments,only: [:create,:destroy]
+    resources :favorites,only: [:create,:destroy]
+    resources :facilities,only: [:index,:show]
+    resources :post
+  end
 
 
 
