@@ -1,2 +1,17 @@
-<h1>Users::Post#index</h1>
-<p>Find me in app/views/users/post/index.html.erb</p>
+<h2>投稿一覧</h2>
+
+
+<div class="row">
+  <% @posts.each do |p| %>
+    <div class="col-md-4">
+      <div class="box">
+      	<%= link_to users_post_path(p) do %>
+      	  <%= attachment_image_tag p, :image, class:"img-square",fallback: "no_image.jpg",size:"100×100" %>
+      	<% end %>
+      <div><%= p.title %></div>
+      <div><%= link_to "詳細",users_post_path(p), class: "btn btn-success" %></div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= paginate @posts %>

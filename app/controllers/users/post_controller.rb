@@ -1,6 +1,6 @@
 class Users::PostController < ApplicationController
   def index
-    @posts = Post.all.page(params[:page]).per(6)
+    @posts = Post.all.page(params[:page]).per(3)
   end
 
   def new
