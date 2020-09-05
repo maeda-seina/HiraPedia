@@ -10,6 +10,53 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="navbar navbar-fixed-top">
+      <div class="container">
+        <div class="row">
+          <% if user_signed_in? %>
+          <span class="nav-name">
+            <%= current_user.name %>さん、ようこそ！
+          </span>
+          <% end %>
+
+          <% if user_signed_in? %>
+           <nav>
+             <ul class="nav navbar-nav navbar-right">
+               <li class="user-li"><%= link_to "マイページ", users_post_index_path,class: "Editlink" %></li>
+               <li class="user-li"><%= link_to "記事一覧", users_post_index_path,class: "Editlink" %></li>
+               <li class="user-li"><%= link_to "枚方", users_facilities_path,class: "Editlink" %></li>
+               <li class="user-li"><%= link_to "新規投稿", new_users_post_path,class: "Editlink" %></li>
+               <li class="user-li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "Editlink" %></li>
+             </ul>
+           </nav>
+
+          <% else %>
+            <nav>
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "Home", users_root_path,class: "Editlink" %></li>
+                <li><%= link_to "about", users_about_path,class: "Editlink" %></li>
+                <li><%= link_to "Sign Up", new_user_registration_path,class: "Editlink" %></li>
+                <li><%= link_to "Log In", new_user_session_path,class: "Editlink" %></li>
+                <li><%= link_to "ゲストログイン", users_guest_sign_in_path,class: "Editlink" %></li>
+              </ul>
+            </nav>
+          <% end %>
+
+        </div>
+      </div>
+    </header>
+
+
+    <div class= container>
+      <%= yield %>
+    </div>
+
+
+    <footer>
+      <a class="insta"href="https://www.instagram.com/?hl=ja"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com/login?lang=ja"><i class="fab fa-twitter"></i></a>
+      <a class="youtube" href="https://www.youtube.com/user/YouTubeJapan"><i class="fab fa-youtube"></i></a>
+    </footer>
+
   </body>
 </html>

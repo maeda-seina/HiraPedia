@@ -2,6 +2,9 @@ class Users::PostController < ApplicationController
   def index
   end
 
+  def new
+  end
+
   def show
   end
 
