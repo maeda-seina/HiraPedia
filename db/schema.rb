@@ -52,9 +52,8 @@ ActiveRecord::Schema.define(version: 2020_09_04_032832) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "favorite_id", null: false
-    t.integer "post_comment_id", null: false
     t.string "title", null: false
+    t.string "image_id", null: false
     t.text "body"
     t.string "address", null: false
     t.text "access"

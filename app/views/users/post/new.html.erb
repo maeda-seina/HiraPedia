@@ -1,1 +1,49 @@
-new.html.erb
+<%= form_with model:@post, url: users_post_index_path, local:true do |f| %>
+  <div class="row">
+  	<div class="col-xs-10">
+  	  <table class="table">
+  	  	<thead>
+  	  	<tr>
+  	  	  <th>
+  	  	  	<%= attachment_image_tag @post, :image, class:"img-square",fallback: "no_image.jpg",size:"100×100" %>
+  	  	  </th>
+  	  	  <th>
+  	  	  	<div>
+  	  	  	  <%= f.attachment_field :image %>
+  	  	  	</div>
+  	  	  </th>
+  	  	</tr>
+  	  	<tr>
+  	      <th>
+  	      	<%= f.label :"タイトル" %>
+  	      </th>
+  	      <th>
+  	      	<%= f.text_field :title, placeholder: "タイトル" %>
+  	      </th>
+  	  	</tr>
+  	  	<tr>
+  	  	  <th>
+  	  	  	<%= f.label :"内容" %>
+  	  	  </th>
+  	  	  <th>
+  	  	  	<%= f.text_area :body, placeholder: "内容" %>
+  	  	  </th>
+  	  	</tr>
+  	  	<tr>
+  	  	  <th>
+  	  		<%= f.label :"住所" %>
+  	  	  </th>
+  	  	  <th>
+  	  	  	<%= f.text_area :address, placeholder: "住所" %>
+  	  	  </th>
+  	  	</tr>
+  	  	<tr>
+  	  	  <th>
+  	  	  	<%= f.submit "投稿" %>
+  	  	  </th>
+  	  	</tr>
+  	  </thead>
+  	  </table>
+  	</div>
+  </div>
+<% end %>

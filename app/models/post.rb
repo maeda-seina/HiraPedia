@@ -3,6 +3,9 @@ class Post < ApplicationRecord
 	has_many :favorites
 	has_many :post_comments
 	attachment :image
-	validaates :title, presence: true
-	validaates :address, presence: true
+	validates :title, presence: true
+	validates :address, presence: true
+
+    geocoded_by :address
+    after_validation :geocode, if: :address_changed?
 end
