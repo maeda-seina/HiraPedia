@@ -17,7 +17,7 @@ class Users::PostController < ApplicationController
     # user_idがフォームから来てないのでログインユーザーのを使用する
     # viewでhidden_fieldを使ってuser_idを渡してあげるか、コントローラで
     # 下のように記述してあげる必要がある。エラー文：User must exist.
-    # save！を使ってなぜsaveできないかを調べたらUser must existが出た。
+    # なぜセーブできないかわからなかったから、save！を使うとエラ〜メッセージを出せることを利用した。そしたらUser must existが出た。
     # あとはpostテーブルにfavorite_idとpost_comment_idがあったが投稿した後に使うモノなので
     # 外部キーいらない。後null falseとなってたので一生saveできなかった可能性あった笑
     @post.user_id = current_user.id
