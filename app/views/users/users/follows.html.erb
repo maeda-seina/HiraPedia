@@ -1,0 +1,13 @@
+follows.html.erb
+
+<% @users.each do |user| %>
+  <hr>
+  <p><span>name: </span><%= link_to user.name, users_user_path(user.id) %></p>
+    <% if current_user != user %>
+        <% if user.followed_by?(current_user) %>
+            <p><%=link_to "フォロー済み", users_user_relationships_path(user.id), method: :delete %></p>
+        <% else %>
+            <p><%=link_to "フォローする", users_user_relationships_path(user.id), method: :post %></p>
+        <% end %>
+    <% end %>
+<% end %>

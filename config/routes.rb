@@ -4,8 +4,11 @@ Rails.application.routes.draw do
     root 'home#top'
     get 'about' => 'home#about'
     post '/guest_sign_in' => 'home#guest'
-    resources :users,only: [:show,:edit,:update]
-    resources :relationships,only: [:create,:destroy]
+    resources :users,only: [:show,:edit,:update] do
+      resource :relationships, only: [:create, :destroy]
+      get :follows, on: :member
+      get :followers, on: :member
+    end
     resources :post_comments,only: [:create,:destroy]
     resources :facilities,only: [:index,:show]
     resources :post do
