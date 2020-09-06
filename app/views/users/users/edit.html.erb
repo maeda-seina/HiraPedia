@@ -1,2 +1,43 @@
 <h1>Users::Users#edit</h1>
 <p>Find me in app/views/users/users/edit.html.erb</p>
+<%= form_with model:@user, url: users_user_path, local:true do |f| %>
+  <div class="row">
+  	<div class="col-xs-10">
+  	  <table class="table">
+  	  	<thead>
+  	  	<tr>
+  	  	  <th>
+  	  	  	<%= attachment_image_tag @user, :image, :fill, 300, 300, fallback: "no_image.jpg",size:"100×100" %>
+  	  	  </th>
+  	  	  <th>
+  	  	  	<div>
+  	  	  	  <%= f.attachment_field :image %>
+  	  	  	</div>
+  	  	  </th>
+  	  	</tr>
+  	  	<tr>
+  	      <th>
+  	      	<%= f.label :"name" %>
+  	      </th>
+  	      <th>
+  	      	<%= f.text_field :name, placeholder: "名前" %>
+  	      </th>
+  	  	</tr>
+  	  	<tr>
+  	  	  <th>
+  	  	  	<%= f.label :"introduction" %>
+  	  	  </th>
+  	  	  <th>
+  	  	  	<%= f.text_area :introduction, placeholder: "自己紹介" %>
+  	  	  </th>
+  	  	</tr>
+  	  	<tr>
+  	  	  <th>
+  	  	  	<%= f.submit "更新" %>
+  	  	  </th>
+  	  	</tr>
+  	  </thead>
+  	  </table>
+  	</div>
+  </div>
+<% end %>

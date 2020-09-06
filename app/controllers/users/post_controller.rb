@@ -1,6 +1,6 @@
 class Users::PostController < ApplicationController
   def index
-    @posts = Post.all.page(params[:page]).per(3)
+    @posts = Post.all.page(params[:page]).per(6)
   end
 
   def new
@@ -30,9 +30,17 @@ class Users::PostController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+    redirect_to users_user_path(current_user)
+    else
+    render 'edit'
+    end
+
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def destroy
