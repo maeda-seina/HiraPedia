@@ -9,6 +9,8 @@ class Users::PostController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @post_comment = PostComment.new
+    @post_comments = PostComment.all
   end
 
   def create

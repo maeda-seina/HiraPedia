@@ -9,10 +9,10 @@ Rails.application.routes.draw do
       get :follows, on: :member
       get :followers, on: :member
     end
-    resources :post_comments,only: [:create,:destroy]
     resources :facilities,only: [:index,:show]
     resources :post do
       resource :favorites, only: [:create, :destroy]
+      resources :post_comments,only: [:create,:destroy]
     end
   end
 

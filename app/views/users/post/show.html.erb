@@ -37,9 +37,6 @@
   width:270px;
 }
 </style>
-
-
-
 <script type="text/javascript">
     function initMap() {
 
@@ -71,3 +68,26 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
 </script>
+
+<%= form_with model: [@post, @post_comment], url: users_post_post_comments_path(@post) do |f| %>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+    </div>
+  </div>
+      <%= f.submit "送信する" %>
+<% end %>
+
+<% @post_comments.each do |post_comment| %>
+<div class="row">
+    <div class="col-sm-6">
+        <%= post_comment.comment %>
+    </div>
+</div>
+<% end %>
+
+
+
+
+
+
