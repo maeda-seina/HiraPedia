@@ -44,6 +44,11 @@
   	  	  	<%= f.submit "更新" %>
   	  	  </th>
   	  	</tr>
+        <tr>
+          <th>
+            <%= link_to '削除', users_post_path, method: :delete, class: "btn btn-danger" %>
+          </th>
+        </tr>
   	  </thead>
   	  </table>
   	</div>
