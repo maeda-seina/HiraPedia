@@ -78,13 +78,28 @@
       <%= f.submit "送信する" %>
 <% end %>
 
-<% @post_comments.each do |post_comment| %>
-<div class="row">
-    <div class="col-sm-6">
+<table class="table">
+  <tr>
+    <th>ユーザー名</th>
+    <th>コメント内容</th>
+    <th></th>
+　</tr>
+<% @post.post_comments.each do |post_comment| %>
+  <tr>
+    <td>
+        <%#= post_comment.user.name %>
+    </td>
+    <td>
         <%= post_comment.comment %>
+    </td>
+        <% if  post_comment.user_id == current_user.id %>
+    <td><%= link_to "削除",users_post_post_comment_path(@post, post_comment), method: :delete, local: true , data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger " %></td>
+        <% end %>
     </div>
 </div>
+  </tr>
 <% end %>
+</table>
 
 
 
