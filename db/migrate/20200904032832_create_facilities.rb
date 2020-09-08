@@ -4,6 +4,7 @@ class CreateFacilities < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.text :body
       t.string :image_id
+      t.string :address
       t.float :latitude
       t.float :longitude
       t.text :access

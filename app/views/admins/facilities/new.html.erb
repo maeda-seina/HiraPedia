@@ -1,11 +1,11 @@
-<%= form_with model:@facility, url: admins_facility_path(@facility), local:true do |f| %>
+<%= form_with model:@facility, url: admins_facilities_path, local:true do |f| %>
   <div class="row">
   	<div class="col-xs-10">
   	  <table class="table">
   	  	<thead>
   	  	<tr>
   	  	  <th>
-  	  	  	<%= attachment_image_tag @facility, :image, :fill, 300, 300,fallback: "no_image.jpg",size:"100×100" %>
+  	  	  	<%= attachment_image_tag @facility, :image, class:"img-square",fallback: "no_image.jpg",size:"100×100" %>
   	  	  </th>
   	  	  <th>
   	  	  	<div>
@@ -15,10 +15,10 @@
   	  	</tr>
   	  	<tr>
   	      <th>
-  	      	<%= f.label :"名称" %>
+  	      	<%= f.label :"名前" %>
   	      </th>
   	      <th>
-  	      	<%= f.text_field :name, placeholder: "名称" %>
+  	      	<%= f.text_field :name, placeholder: "名前" %>
   	      </th>
   	  	</tr>
   	  	<tr>
@@ -39,14 +39,9 @@
   	  	</tr>
   	  	<tr>
   	  	  <th>
-  	  	  	<%= f.submit "更新" %>
+  	  	  	<%= f.submit "投稿" %>
   	  	  </th>
   	  	</tr>
-        <tr>
-          <th>
-            <%= link_to '削除', admins_facility_path, method: :delete, class: "btn btn-danger" %>
-          </th>
-        </tr>
   	  </thead>
   	  </table>
   	</div>

@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_09_04_032832) do
     t.string "name", null: false
     t.text "body"
     t.string "image_id"
+    t.string "address"
     t.float "latitude"
     t.float "longitude"
     t.text "access"

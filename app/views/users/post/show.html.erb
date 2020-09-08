@@ -70,37 +70,15 @@ partialとlocalsを消しても非同期は使える。その時は_favorite.htm
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
 </script>
 
-<%= form_with model: [@post, @post_comment], url: users_post_post_comments_path(@post) do |f| %>
-  <div class="row">
-    <div class="col-sm-6">
-      <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
-    </div>
-  </div>
-      <%= f.submit "送信する" %>
-<% end %>
-
-<table class="table">
-  <tr>
-    <th>ユーザー名</th>
-    <th>コメント内容</th>
-    <th></th>
-　</tr>
-<% @post.post_comments.each do |post_comment| %>
-  <tr>
-    <td>
-        <%= post_comment.user.name %>
-    </td>
-    <td>
-        <%= post_comment.comment %>
-    </td>
-        <% if  post_comment.user_id == current_user.id %>
-    <td><%= link_to "削除",users_post_post_comment_path(@post, post_comment), method: :delete, local: true , data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger " %></td>
-        <% end %>
-    </div>
+<div>
+ <%= render partial: 'users/post_comments/form', locals: { post_comment: @post_comment, post: @post } %>
 </div>
-  </tr>
-<% end %>
-</table>
+
+
+
+<div id="comments_area">
+  <%= render partial: 'users/post_comments/index', locals: { post_comments: @post_comments } %>
+</div>
 
 
 

@@ -3,11 +3,33 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(resource)
-    users_post_index_path
+    case resource
+      when Admin
+      admins_facilities_path
+      when User
+      users_post_index_path
+    end
   end
 
-  def after_sign_out_path_for(resource)
-    users_root_path
+  def after_sign_out_path_for(resource_or_scope)
+    # これではモデルがうまくとれなくエラーが出てしまう。
+    # case resource
+    #   when Admin
+    #   new_admin_session_path
+    #   when User
+    #   users_root_path
+    # end
+
+    # users_root_path
+
+    # new_admin_session_path
+
+    # この書き方だとうまくいく
+    if resource_or_scope == :admin
+      new_admin_session_path
+    elsif resource_or_scope == :user
+      users_root_path
+    end
   end
 
   protected
