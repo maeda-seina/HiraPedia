@@ -1,4 +1,6 @@
 class Users::PostController < ApplicationController
+
+
   def index
     @posts = Post.all.page(params[:page]).per(6)
   end
@@ -7,11 +9,19 @@ class Users::PostController < ApplicationController
     @post = Post.new
   end
 
+
+
+
+
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
     @post_comments = PostComment.all
   end
+
+
+
+
 
   def create
     @post = Post.new(post_params)
@@ -30,6 +40,8 @@ class Users::PostController < ApplicationController
       render 'new'
     end
   end
+
+
 
   def update
     @post = Post.find(params[:id])

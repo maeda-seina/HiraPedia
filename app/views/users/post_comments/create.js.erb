@@ -1,0 +1,9 @@
+$("#comments_area").html("<%= j(render partial: 'index', locals: { post_comments: @post.post_comments }) %>");
+$("#post_comment_comment").val("");
+//検証ツールで、textareaのid="post_comment_comment"となっていたからcreateした後はそれを消すという記述が必要。それが二行目。
+//localsの部分は部分テンプレートの話。
+// show.htmlと_form.html
+// _index.htmlとcreate.js
+// post_commentのcreateアクションやdestroyアクションを非同期にしたい
+// →create.js、destroy.jsを作る。
+// post_commentコントローラのcreate,destroyアクションは連動してる。
