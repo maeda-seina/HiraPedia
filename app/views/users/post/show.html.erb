@@ -14,21 +14,23 @@ partialとlocalsを消しても非同期は使える。その時は_favorite.htm
 <%= @post.id %>の部分はネストされてるからpost.idも必要ってこと？ -->
 
 
-
-
   <strong>投稿者
     <%= link_to users_user_path(@post.user) do %>
       <%= @post.user.name %>
     <% end %>
   </strong>
 
-  <% if current_user != @post.user %>
-        <% if @post.user.followed_by?(current_user) %>
-            <p><%=link_to "フォロー済み", users_user_relationships_path(@post.user.id), method: :delete %></p>
-        <% else %>
-            <p><%=link_to "フォローする", users_user_relationships_path(@post.user.id), method: :post %></p>
-        <% end %>
-    <% end %>
+
+
+<div id="follow_buttons_<%= @post.id %>">
+  <%= render partial: 'users/relationships/relationship', locals: { post: @post} %>
+</div>
+<!-- ここの<%= @post.id %>はpostのshowページだからpost_idが必ず必要になってくる。だから必要。
+userのshowとかで書くなら<%= @user.id %>とかが必要だということ！ -->
+
+
+
+
 
 <div id="map"></div>
 
