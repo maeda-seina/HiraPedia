@@ -8,6 +8,7 @@ class CreateFacilities < ActiveRecord::Migration[5.2]
       t.float :latitude
       t.float :longitude
       t.text :access
+      t.integer :impressions_count, default: 0
 
       t.timestamps
     end

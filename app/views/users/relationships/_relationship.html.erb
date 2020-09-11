@@ -1,10 +1,8 @@
-<% if current_user != post.user %>
     <% if post.user.followed_by?(current_user) %>
         <p><%=link_to "フォロー済み", users_user_relationships_path(user_id: post.user.id, post_id: post.id), method: :delete, remote: :true %></p>
     <% else %>
         <p><%=link_to "フォローする", users_user_relationships_path(user_id: post.user.id, post_id: post.id), method: :post, remote: :true %></p>
     <% end %>
-<% end %>
 <!-- remote: :trueと記述ないとdefaultでlocal: :trueとなってしまうから記述が必要。
 フォローするとフォロー済みのボタンでエラー文からuser_idはparameterで渡されてたけど、
 post_idがない！というエラーが出てたので、user_idはこう、post_idはこう、と分けて記述してあげる。

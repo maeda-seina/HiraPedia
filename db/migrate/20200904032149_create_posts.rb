@@ -9,6 +9,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.text :access
       t.float :latitude
       t.float :longitude
+      t.integer :impressions_count, default: 0
 
       t.timestamps
     end

@@ -1,18 +1,18 @@
 
+<div class="row">
+<div class="col-xs-6">
+<h1><strong><%= @post.title %></strong></h1>
+<%= attachment_image_tag @post, :image, :fill, 700, 500, fallback: "no_image.jpg",size:"100×100" %>
+
+<strong>閲覧数:</strong>
+  <%= @post.impressions_count %>
 
 
-<%= attachment_image_tag @post, :image, :fill, 300, 300, fallback: "no_image.jpg",size:"100×100" %>
-<p>住所</p>
-<p><%= @post.address %></p>
 
 
-<div id="favorites_buttons_<%= @post.id %>">
-  <%= render partial: 'users/favorites/favorite', locals: { post: @post} %>
-</div>
 <!-- locals:{}の中身は@postをpostに入れてpostを_favorite.htmlで使えるようにするため。
 partialとlocalsを消しても非同期は使える。その時は_favorite.htmlのpostを@postに変えて、create.jsのpartialとlocalsも消したらうまくいく。
 <%= @post.id %>の部分はネストされてるからpost.idも必要ってこと？ -->
-
 
   <strong>投稿者
     <%= link_to users_user_path(@post.user) do %>
@@ -26,18 +26,23 @@ partialとlocalsを消しても非同期は使える。その時は_favorite.htm
   <%= render partial: 'users/relationships/relationship', locals: { post: @post} %>
 </div>
 <!-- ここの<%= @post.id %>はpostのshowページだからpost_idが必ず必要になってくる。だから必要。
-userのshowとかで書くなら<%= @user.id %>とかが必要だということ！ -->
+userのshowとかで書くなら<%#= @user.id %>とかが必要だということ！ -->
+</div>
 
 
 
-
-
+<div class="col-xs-6 col-xs-push-2">
+  <h1>
+    <div id="favorites_buttons_<%= @post.id %>">
+  <%= render partial: 'users/favorites/favorite', locals: { post: @post} %>
+    </div>
+  </h1>
 <div id="map"></div>
 
 <style>
 #map{
-  height: 150px;
-  width:270px;
+  height: 500px;
+  width:500px;
 }
 </style>
 <script type="text/javascript">
@@ -71,6 +76,10 @@ userのshowとかで書くなら<%= @user.id %>とかが必要だということ
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
 </script>
+<h2>住所</h2>
+<h2><%= @post.address %></h2>
+</div>
+</div>
 
 <div>
  <%= render partial: 'users/post_comments/form', locals: { post_comment: @post_comment, post: @post } %>
