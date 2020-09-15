@@ -1,1 +1,6 @@
-$('#follow_buttons_<%= @post.id %>').html("<%= j(render partial: 'users/relationships/relationship', locals: {post: @post}) %>");
+$('#follow_buttons_<%= @user.id %>').html("<%= j(render partial: 'users/relationships/relationship', locals: {user: @user}) %>");
+$('#follow_count_<%= @user.id %>').html("<%= j(render partial: 'users/users/profile') %>");
+
+// ③そしてこのcreate.jsの中の@post.idとかpost: @postとかにしていたのも 全てuserに変える。destroy.jsも。=> postのshowへ
+// ⑦follow_countで新たに作ってrenderを書く。でもここでusersのコントローラでshowで@user 渡ってるから、localsいらない。
+// ちなみに、usersのshowのuser: @user　ってのもいらなくなる。これで数も変わるようになった。=> _profileへ

@@ -8,12 +8,17 @@
   	  <div>introduction
   	  	<%= @user.introduction %></div>
   	  <div>フォロー数
-        <%= link_to follows_users_user_path do %>
+        <%= link_to follows_users_user_path(id: @user.id) do %>
   	  	  <%= @user.followings.count %>
         <% end %>
   	  </div>
   	  <div>フォロワー数
-        <%= link_to followers_users_user_path do %>
+        <%= link_to followers_users_user_path(id: @user.id) do %>
   	  	  <%= @user.followers.count %>
         <% end %>
   	  </div>
+
+     <!--  ⑧ここで11行目がおかしいと出る。これはidを渡してなかったからだ。()で渡してやる。それでもエラー出る。
+      ActionView::Template::Error (No route matches {:action=>"follows", :controller=>"users/users", :user_id=>"4"}, missing required keys: [:id]):
+      ってエラー出てるから、user_idが渡ってしまっているが欲しいのは:idだということ。なので最後に、
+      (id: @user.id)としてやって終わり。=>relationshipコントローラへ -->

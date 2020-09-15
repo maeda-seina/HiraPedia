@@ -22,13 +22,14 @@ partialとlocalsを消しても非同期は使える。その時は_favorite.htm
 
 
 
-<div id="follow_buttons_<%= @post.id %>">
-  <%= render partial: 'users/relationships/relationship', locals: { post: @post} %>
+<div id="follow_buttons_<%= @post.user_id %>">
+  <%= render partial: 'users/relationships/relationship', locals: { user: @post.user} %>
 </div>
 <!-- ここの<%= @post.id %>はpostのshowページだからpost_idが必ず必要になってくる。だから必要。
 userのshowとかで書くなら<%#= @user.id %>とかが必要だということ！ -->
 </div>
-
+<!-- ④ここもpost_idとかpost: @postとかになっていたので、relationshipのことなんだから、全てpostのuserとした。=>relationshipコントローラへ
+ -->
 
 
 <div class="col-xs-6 col-xs-push-2">

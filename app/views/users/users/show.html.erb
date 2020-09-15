@@ -12,7 +12,7 @@
    	   <div><%= link_to "編集する",edit_users_post_path(post), class: "btn btn-outline-success" %></div>
       <% end %>
     </div>
-    -------------------------------------------------------------------------------------------------------------------------------------
+    ------------------------------------------------------------------------------------------------------------------------
     <h2>お気に入り一覧</h2>
     <div class="box2">
       <% @favorite_posts.each do |favorite| %>
@@ -26,9 +26,9 @@
     </div>
   </div>
   <div class="col-xs-3 col-md-pull-9">
-
-    <%= render partial: "profile", user: @user %>
-
+    <div id="follow_count_<%= @user.id %>">
+      <%= render partial: "profile", user: @user %>
+    </div>
     <% if @user == current_user %>
         <div>
           <%= link_to "編集する",edit_users_user_path(current_user), class: "btn btn-outline-success" %>
@@ -36,9 +36,19 @@
       <% else %>
 
         <div id="follow_buttons_<%= @user.id %>">
-          <%= render partial: 'users/relationships/relationship', locals: { post: @post} %>
+          <%= render partial: 'users/relationships/relationship', locals: { user: @user } %>
         </div>
       <% end %>
 
   </div>
 </div>
+
+<!-- ②そしてここのrenderの部分も全てpost.idとかpost: @postとかになっていたので、userに変更。=>create.jsへ
+⑥この_profileの方も一緒のcreate.jsdestroy.jsで変えたいので、profileのrenderの方をfollow_countとかでdivで囲っておく=>create.jsへ
+
+ -->
+
+
+
+
+
