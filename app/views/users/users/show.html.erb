@@ -9,7 +9,7 @@
       	  <%= attachment_image_tag post, :image, :fill, 600, 600, fallback: "no_image.jpg",size:"10×10" %>
       	<% end %>
    	   <h3><%= post.title %></h3>
-   	   <div><%= link_to "編集する",edit_users_post_path(post), class: "btn btn-success" %></div>
+   	   <div><%= link_to "編集する",edit_users_post_path(post), class: "btn btn-outline-success" %></div>
       <% end %>
     </div>
     -------------------------------------------------------------------------------------------------------------------------------------
@@ -31,7 +31,7 @@
 
     <% if @user == current_user %>
         <div>
-          <%= link_to "編集する",edit_users_user_path(current_user), class: "btn btn-success" %>
+          <%= link_to "編集する",edit_users_user_path(current_user), class: "btn btn-outline-success" %>
         </div>
       <% else %>
 

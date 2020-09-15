@@ -1,1 +1,46 @@
-top.html.erb
+<div class="top-wrapper">
+	<div class="container">
+        <h1>HiraPedia</h1>
+        <p>HiraPediaは枚方の好きな場所を投稿できるサイトです</p>
+        <div class="btn-wrapper">
+        <%= link_to new_user_registration_path do %>
+          <div class="btn btn-primary btn-raised ">新規会員登録はこちら</div>
+        <% end %>
+          <p>or sign up with</p>
+          <a href="#" class="btn btn-primary btn-raised">
+          	<span class="fab fa-google"></span>
+          	Googleアカウントで登録
+          </a>
+        </div>
+    </div>
+</div>
+<div class="lesson-wrapper">
+	<div class="container">
+        <div class="heading">
+          <h2>Hirapediaとは？</h2>
+        </div>
+        <div class="lessons"></div>
+            <p class="txt-contents"></p>
+          </div>
+        </div>
+      </div>
+</div>
+<div class="message-wrapper">
+	<div class="container">
+        <div class="heading">
+          <h2>さぁ、投稿してみよう！</h2>
+          <h3>登録に必要な時間は1分程度です</h3>
+        </div>
+        <%= link_to new_user_registration_path do %>
+          <span class="btn btn-primary btn-raised btn-lg mr-3">新規会員登録</span>
+        <% end %>
+      </div>
+</div>
+
+
+
+
+
+
+
+

@@ -18,7 +18,10 @@
   	      	<%= f.label :"name" %>
   	      </th>
   	      <th>
-  	      	<%= f.text_field :name, placeholder: "名前" %>
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="bmd-label-floating"></label>
+  	      	   <%= f.text_field :name, placeholder: "名前" %>
+            </div>
   	      </th>
   	  	</tr>
   	  	<tr>
@@ -26,12 +29,15 @@
   	  	  	<%= f.label :"introduction" %>
   	  	  </th>
   	  	  <th>
-  	  	  	<%= f.text_area :introduction, placeholder: "自己紹介" %>
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="bmd-label-floating"></label>
+  	  	  	    <%= f.text_area :introduction, placeholder: "自己紹介" %>
+            </div>
   	  	  </th>
   	  	</tr>
   	  	<tr>
   	  	  <th>
-  	  	  	<%= f.submit "更新" %>
+  	  	  	<%= f.submit "更新",class:"btn btn-outline-info" %>
   	  	  </th>
   	  	</tr>
   	  </thead>

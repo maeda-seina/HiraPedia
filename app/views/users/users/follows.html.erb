@@ -4,6 +4,7 @@
   	<th></th>
   	<th></th>
     <th></th>
+    <th></th>
   </tr>
   <% @users.each do |user| %>
   <tr>
@@ -18,14 +19,14 @@
       フォロワー数<%= user.followers.count %>
     </td>
     <td>
-      <%= link_to "ユーザーをみにいく", users_user_path(user), class: "btn-sm btn-success" %>
+      <%= link_to "ユーザーをみにいく", users_user_path(user), class: "btn btn-raised btn-success" %>
     </td>
   	<% if current_user != user %>
   	<td>
   		<% if user.followed_by?(current_user) %>
-            <p><%=link_to "フォロー済み", users_user_relationships_path(user.id), method: :delete %></p>
+            <p><%=link_to "フォロー済み", users_user_relationships_path(user.id), method: :delete, class:"btn btn-raised btn-info" %></p>
         <% else %>
-            <p><%=link_to "フォローする", users_user_relationships_path(user.id), method: :post %></p>
+            <p><%=link_to "フォローする", users_user_relationships_path(user.id), method: :post, class:"btn btn-outline-info" %></p>
         <% end %>
   	</td>
   	<% end %>

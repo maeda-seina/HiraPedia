@@ -5,6 +5,8 @@ class Users::FavoritesController < ApplicationController
   	favorite = current_user.favorites.build(post_id: params[:post_id])
     favorite.save
     #redirect_to request.referer
+    post = Post.find(params[:post_id])
+    # post.create_notification_by(current_user)
   end
 
   def destroy

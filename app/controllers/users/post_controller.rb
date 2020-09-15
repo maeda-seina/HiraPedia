@@ -2,7 +2,7 @@ class Users::PostController < ApplicationController
 
 
   def index
-    @posts = Post.all.page(params[:page]).per(6)
+    @posts = Post.all.page(params[:page]).per(3)
     @most_viewed = Post.order('impressions_count DESC').take(10)
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
   end
@@ -11,20 +11,12 @@ class Users::PostController < ApplicationController
     @post = Post.new
   end
 
-
-
-
-
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
     @post_comments = PostComment.all
     impressionist(@post, :unique => [:session_hash])
   end
-
-
-
-
 
   def create
     @post = Post.new(post_params)
