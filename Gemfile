@@ -75,6 +75,8 @@ gem 'pry-rails'
 gem 'pry-byebug'
 gem 'geocoder'
 gem 'impressionist', '~>1.6.1'
+gem "chartkick"
+gem 'groupdate'
 
 gem 'dotenv-rails'
 group :production do
