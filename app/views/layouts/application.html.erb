@@ -18,6 +18,11 @@
     <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 
 
+    <% if user_signed_in? %>
+      <span class="nav-name">
+        <%= current_user.name %> さん、こんにちは！
+      </span>
+    <% end %>
 
     <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
       <header class="bmd-layout-header">

@@ -15,9 +15,11 @@
 
   <div class="form-group">
     <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br />
+    <div class="text-muted">
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> 文字以上)</em>
+      <% end %><br />
+    </div>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
