@@ -3,13 +3,3 @@
     <% else %>
         <p><%=link_to "フォローする", users_user_relationships_path(user_id: user.id), method: :post, remote: :true, class:"btn btn-outline-info" %></p>
     <% end %>
-<!-- remote: :trueと記述ないとdefaultでlocal: :trueとなってしまうから記述が必要。
-フォローするとフォロー済みのボタンでエラー文からuser_idはparameterで渡されてたけど、
-post_idがない！というエラーが出てたので、user_idはこう、post_idはこう、と分けて記述してあげる。
- -->
-
-<!-- ①ここが全てpost.userとかになってしまっていたのでそこを全てuser単体にした。=>usersのshowへ。 -->
-<!-- relationshipとuserの関係がpostを通してになってしまっていた。
-人と人との関係なのにpostを経由するのはおかしい。面倒なことをやってしまっている。
-そこを改善するところからスタート。
- -->
