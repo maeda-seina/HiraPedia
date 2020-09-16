@@ -1,5 +1,3 @@
-<h1>Users::Post#edit</h1>
-<p>Find me in app/views/users/post/edit.html.erb</p>
 <%= form_with model:@post, url: users_post_path, local:true do |f| %>
   <div class="row">
   	<div class="col-xs-10">
@@ -7,7 +5,7 @@
   	  	<thead>
   	  	<tr>
   	  	  <th>
-  	  	  	<%= attachment_image_tag @post, :image, class:"img-square",fallback: "no_image.jpg",size:"100×100" %>
+  	  	  	<%= attachment_image_tag @post, :image, :fill, 250, 250 ,fallback: "no_image.jpg",size:"100×100" %>
   	  	  </th>
   	  	  <th>
   	  	  	<div>

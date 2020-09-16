@@ -6,7 +6,7 @@
     <div class="box">
       <% @user.posts.each do |post| %>
     	<%= link_to users_post_path(post) do %>
-      	  <%= attachment_image_tag post, :image, :fill, 600, 600, fallback: "no_image.jpg",size:"10×10" %>
+      	  <%= attachment_image_tag post, :image, :fill, 300, 300, fallback: "no_image.jpg",size:"10×10" %>
       	<% end %>
    	   <h3><%= post.title %></h3>
    	   <div><%= link_to "編集する",edit_users_post_path(post), class: "btn btn-outline-success" %></div>
@@ -17,11 +17,13 @@
     <div class="box2">
       <% @favorite_posts.each do |favorite| %>
       <div>
-      	<%= attachment_image_tag favorite, :image, :fill, 600, 600, fallback: "no_image.jpg",size:"100×100" %>
+        <%= link_to users_post_path(favorite) do %>
+      	  <%= attachment_image_tag favorite, :image, :fill, 300, 300, fallback: "no_image.jpg",size:"100×100" %>
+        <% end %>
       </div>
-      <strong>
+      <h3>
         <%= favorite.title %>
-      </strong>
+      </h3>
       <% end %>
     </div>
   </div>
@@ -33,8 +35,7 @@
         <div>
           <%= link_to "編集する",edit_users_user_path(current_user), class: "btn btn-outline-success" %>
         </div>
-      <% else %>
-
+    <% else %>
         <div id="follow_buttons_<%= @user.id %>">
           <%= render partial: 'users/relationships/relationship', locals: { user: @user } %>
         </div>

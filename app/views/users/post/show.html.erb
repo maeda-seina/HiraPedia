@@ -15,10 +15,11 @@
   </strong>
 
 
-
+<% if @post.user != current_user %>
 <div id="follow_buttons_<%= @post.user_id %>">
   <%= render partial: 'users/relationships/relationship', locals: { user: @post.user} %>
 </div>
+<% end %>
 
 </div>
 

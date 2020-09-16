@@ -2,21 +2,20 @@ class Post < ApplicationRecord
 	belongs_to :user
 	has_many :favorites, dependent: :destroy
 	has_many :post_comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 	attachment :image
 
-    geocoded_by :address
-    after_validation :geocode, if: :address_changed?
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
-    is_impressionable counter_cache: true
+  is_impressionable counter_cache: true
 
-    has_many :notifications, dependent: :destroy
-
-    validates :title, presence: true
+  validates :title, presence: true
 	validates :address, presence: true
 
-    def favorited_by?(user)
+  def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
-    end
+  end
 
   def create_notification_like!(current_user)
     # すでに「いいね」されているか検索
