@@ -1,0 +1,91 @@
+<div class="row">
+<div class="col-xs-6">
+<h1><strong><%= @post.title %></strong></h1>
+<%= attachment_image_tag @post, :image, :fill, 700, 500, fallback: "no_image.jpg",size:"100×100" %>
+
+<strong>閲覧数:</strong>
+  <%= @post.impressions_count %>
+
+
+  <strong>投稿者
+    <%= link_to users_user_path(@post.user) do %>
+      <%= @post.user.name %>
+    <% end %>
+  </strong>
+
+
+<% if @post.user != current_user %>
+<div id="follow_buttons_<%= @post.user_id %>">
+  <%= render partial: 'users/relationships/relationship', locals: { user: @post.user} %>
+</div>
+<% end %>
+
+</div>
+
+
+
+<div class="col-xs-6 col-xs-push-2">
+  <h1>
+    <div id="favorites_buttons_<%= @post.id %>">
+  <%= render partial: 'users/favorites/favorite', locals: { post: @post} %>
+    </div>
+  </h1>
+<div id="map"></div>
+
+<style>
+#map{
+  height: 500px;
+  width:500px;
+}
+</style>
+<script type="text/javascript">
+    function initMap() {
+
+        var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: test
+        });
+        var transitLayer = new google.maps.TransitLayer();
+        transitLayer.setMap(map);
+
+        var contentString = '住所：<%= @post.address %>';
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position:test,
+            map: map,
+            title: contentString
+        });
+
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+    }
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+</script>
+<h2>住所</h2>
+<h2><%= @post.address %></h2>
+</div>
+</div>
+
+<div>
+ <%= render partial: 'users/post_comments/form', locals: { post_comment: @post_comment, post: @post } %>
+</div>
+
+
+
+<div id="comments_area">
+  <%= render partial: 'users/post_comments/index', locals: { post_comments: @post_comments } %>
+</div>
+
+
+
+
+
+

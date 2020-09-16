@@ -1,0 +1,75 @@
+<h2>投稿一覧</h2>
+
+<div class="row">
+  <% @posts.each do |p| %>
+    <div class="col-4">
+      <div class="box">
+        <%= link_to users_post_path(p) do %>
+          <%= attachment_image_tag p, :image, :fill, 250, 250, fallback: "no_image.jpg",size:"100×100" %>
+        <% end %>
+      <div><%= p.title %></div>
+      <div><%= link_to "詳細",users_post_path(p), class: "btn btn-raised btn-primary" %></div>
+      </div>
+    </div>
+  <% end %>
+
+
+  <div class="ranking">
+  <div class="col-md-12">
+    <table class="table">
+      <h2>閲覧数ランキング！！！</h2>
+      <thead>
+        <tr>
+          <th>順位</th>
+          <th>名前</th>
+          <th>閲覧数</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @most_viewed.each.with_index(1) do |rank, i| %>
+          <tr>
+            <td><%= "#{i}" %></td>
+            <td>
+              <%= link_to users_post_path(rank) do %>
+                <%= rank.title %>
+              <% end %>
+            </td>
+            <td><%= rank.impressions_count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <table class="table">
+      <h2>お気に入りランキング！！！</h2>
+      <thead>
+        <tr>
+          <th>順位</th>
+          <th>名前</th>
+          <th>いいね数</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @all_ranks.each.with_index(1) do |post, i| %>
+          <tr>
+            <td><%= "#{i}" %></td>
+            <td>
+              <%= link_to users_post_path(post) do %>
+                <%= post.title %>
+              <% end %>
+            </td>
+            <td><%= post.favorites.count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>
+
+
+
+
+<%= paginate @posts %>

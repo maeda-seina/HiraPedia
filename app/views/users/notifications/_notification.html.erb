@@ -1,0 +1,33 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+<div class="col-md-6 mx-auto">
+  <div class="form-inline">
+    <span>
+      <%= link_to users_user_path(visitor) do %>
+        <strong>
+          <%= visitor.name %>
+        </strong>
+      <% end %>
+      <%= 'さんが' %>
+
+      <% case notification.action %>
+      <% when 'follow' then %>
+        <%= "あなたをフォローしました" %>
+      <% when 'like' then %>
+        <%= link_to users_post_path(notification.post) do %>
+            <%= "あなたの投稿" %>
+        <% end %>
+        <%= "にいいねしました" %>
+      <% when 'comment' then %>
+        <%= link_to users_post_path(notification.post) do %>
+            <%= "あなたの投稿" %>
+        <% end %>
+        <%= "にコメントしました" %>
+      <% end %>
+    </span>
+
+  <div class="small text-muted text-right">
+    <%= time_ago_in_words(notification.created_at).upcase %>前
+  </div>
+  </div>
+</div>

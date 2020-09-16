@@ -1,0 +1,55 @@
+<%= form_with model:@post, url: users_post_path, local:true do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+  <div class="row">
+  	<div class="col-xs-10">
+  	  <table class="table">
+  	  	<thead>
+  	  	<tr>
+  	  	  <th>
+  	  	  	<%= attachment_image_tag @post, :image, :fill, 250, 250 ,fallback: "no_image.jpg",size:"100×100" %>
+  	  	  </th>
+  	  	  <th>
+  	  	  	<div>
+  	  	  	  <%= f.attachment_field :image %>
+  	  	  	</div>
+  	  	  </th>
+  	  	</tr>
+  	  	<tr>
+  	      <th>
+  	      	<%= f.label :"タイトル" %>
+  	      </th>
+  	      <th>
+  	      	<%= f.text_field :title, placeholder: "タイトル" %>
+  	      </th>
+  	  	</tr>
+  	  	<tr>
+  	  	  <th>
+  	  	  	<%= f.label :"内容" %>
+  	  	  </th>
+  	  	  <th>
+  	  	  	<%= f.text_area :body, placeholder: "内容" %>
+  	  	  </th>
+  	  	</tr>
+  	  	<tr>
+  	  	  <th>
+  	  		<%= f.label :"住所" %>
+  	  	  </th>
+  	  	  <th>
+  	  	  	<%= f.text_area :address, placeholder: "住所" %>
+  	  	  </th>
+  	  	</tr>
+  	  	<tr>
+  	  	  <th>
+  	  	  	<%= f.submit "更新" %>
+  	  	  </th>
+  	  	</tr>
+        <tr>
+          <th>
+            <%= link_to '削除', users_post_path, method: :delete, class: "btn btn-danger" %>
+          </th>
+        </tr>
+  	  </thead>
+  	  </table>
+  	</div>
+  </div>
+<% end %>

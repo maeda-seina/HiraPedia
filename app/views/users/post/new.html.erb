@@ -1,0 +1,59 @@
+<%= form_with model:@post, url: users_post_index_path, local:true do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+  <div class="row">
+  	<div class="col-xs-10">
+  	  <table class="table">
+  	  	<thead>
+  	  	<tr>
+  	  	  <th>
+  	  	  	<%= attachment_image_tag @post, :image, class:"img-square",fallback: "no_image.jpg",size:"100×100" %>
+  	  	  </th>
+  	  	  <th>
+  	  	  	<div>
+  	  	  	  <%= f.attachment_field :image %>
+  	  	  	</div>
+  	  	  </th>
+  	  	</tr>
+  	  	<tr>
+  	      <th>
+  	      	<%= f.label :"タイトル" %>
+  	      </th>
+  	      <th>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="bmd-label-floating">タイトル</label>
+                  <%= f.text_field :title %>
+              </div>
+  	      </th>
+  	  	</tr>
+  	  	<tr>
+  	  	  <th>
+  	  	  	<%= f.label :"内容" %>
+  	  	  </th>
+  	  	  <th>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="bmd-label-floating">内容</label>
+  	  	  	     <%= f.text_area :body %>
+              </div>
+  	  	  </th>
+  	  	</tr>
+  	  	<tr>
+  	  	  <th>
+  	  		<%= f.label :"住所" %>
+  	  	  </th>
+  	  	  <th>
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="bmd-label-floating">住所</label>
+  	  	  	     <%= f.text_area :address %>
+              </div>
+  	  	  </th>
+  	  	</tr>
+  	  	<tr>
+  	  	  <th>
+  	  	  	<%= f.submit "投稿",class:"btn btn-outline-primary" %>
+  	  	  </th>
+  	  	</tr>
+  	  </thead>
+  	  </table>
+  	</div>
+  </div>
+<% end %>

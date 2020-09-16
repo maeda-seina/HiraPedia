@@ -1,0 +1,19 @@
+<h2>プロフィール</h2>
+  	<div>
+  		<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg",size:"10×10" %>
+  	</div>
+
+  	  <div>name
+  	  	<%= @user.name %></div>
+  	  <div>introduction
+  	  	<%= @user.introduction %></div>
+  	  <div>フォロー数
+        <%= link_to follows_users_user_path(id: @user.id) do %>
+  	  	  <%= @user.followings.count %>
+        <% end %>
+  	  </div>
+  	  <div>フォロワー数
+        <%= link_to followers_users_user_path(id: @user.id) do %>
+  	  	  <%= @user.followers.count %>
+        <% end %>
+  	  </div>

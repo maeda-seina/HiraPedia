@@ -1,0 +1,33 @@
+<table class="table table-striped">
+  <tr>
+  	<th>ユーザー画像</th>
+  	<th></th>
+  	<th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @users.each do |user| %>
+  <tr>
+  	<td>
+  	  <%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg",size:"10×10" %>
+  	</td>
+  	<td>
+  	  <p><span>name: </span><%= link_to user.name, users_user_path(user.id) %></p>
+  	</td>
+    <td>
+      フォロー数<%= user.followings.count %>
+      フォロワー数<%= user.followers.count %>
+    </td>
+    <td>
+      <%= link_to "ユーザーをみにいく", users_user_path(user), class: "btn btn-raised btn-success" %>
+    </td>
+  	<% if current_user != user %>
+  	<td>
+  		<div id="follow_buttons_<%= user.id %>">
+          <%= render partial: 'users/relationships/relationship', locals: { user: user } %>
+      </div>
+  	</td>
+  	<% end %>
+    </tr>
+	<% end %>
+</table>
