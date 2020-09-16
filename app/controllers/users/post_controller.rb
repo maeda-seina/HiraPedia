@@ -2,7 +2,7 @@ class Users::PostController < ApplicationController
 
 
   def index
-    @posts = Post.all.page(params[:page]).per(3)
+    @posts = Post.all.page(params[:page]).per(6)
     @most_viewed = Post.order('impressions_count DESC').take(10)
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
   end

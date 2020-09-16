@@ -14,33 +14,20 @@
       <% when 'follow' then %>
         <%= "あなたをフォローしました" %>
       <% when 'like' then %>
-      　<%= link_to users_post_path(notification.post) do %>
-        　　<%= "あなたの投稿" %>
+        <%= link_to users_post_path(notification.post) do %>
+            <%= "あなたの投稿" %>
         <% end %>
         <%= "にいいねしました" %>
       <% when 'comment' then %>
-        <% if notification.post.user_id == visited.id %>
-          <%= link_to users_post_path(notification.post) do %>
+        <%= link_to users_post_path(notification.post) do %>
             <%= "あなたの投稿" %>
-          <% end %>
-          <%= "にコメントしました" %>
-        <% else %>
-          <span>
-            <%= link_to users_post_path(notification.post) do %>
-              <strong>
-                <%= notification.post.user.name + 'さんの投稿' %>
-              </strong>
-            <% end %>
-        <%= "にコメントしました" %>
-        <p class="text-muted mb-0">
-          <%= PostComment.find_by(id: notification.post_comment_id)&.post_comment %>
-        </p>
         <% end %>
+        <%= "にコメントしました" %>
+      <% end %>
     </span>
 
   <div class="small text-muted text-right">
-    <%= time_ago_in_words(notification.created_at).upcase %>
+    <%= time_ago_in_words(notification.created_at).upcase %> ago
   </div>
   </div>
 </div>
-<% end %>
