@@ -1,3 +1,6 @@
+<div class="card mx-auto mt-5" style="width: 50%;">
+  <div class="card-body mx-auto">
+
 <%= form_with model:@post, url: users_post_index_path, local:true do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
   <div class="row">
@@ -47,6 +50,17 @@
               </div>
   	  	  </th>
   	  	</tr>
+        <tr>
+          <th>
+            <%= f.label :"行き方" %>
+          </th>
+          <th>
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="bmd-label-floating">行き方</label>
+                 <%= f.text_area :access %>
+              </div>
+          </th>
+        </tr>
   	  	<tr>
   	  	  <th>
   	  	  	<%= f.submit "投稿",class:"btn btn-outline-primary" %>
@@ -57,3 +71,5 @@
   	</div>
   </div>
 <% end %>
+</div>
+</div>

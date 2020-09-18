@@ -1,43 +1,55 @@
-<div class="row">
-<div class="col-xs-6">
-<h1><strong><%= @post.title %></strong></h1>
-<%= attachment_image_tag @post, :image, :fill, 500, 500, fallback: "no_image.jpg",size:"100×100" %>
-<%= @post.body %>
 
-<strong>閲覧数:</strong>
-  <%= @post.impressions_count %>
-
-
-  <strong>投稿者
-    <%= link_to users_user_path(@post.user) do %>
-      <%= @post.user.name %>
-    <% end %>
-  </strong>
-
-
-<% if @post.user != current_user %>
-<div id="follow_buttons_<%= @post.user_id %>">
-  <%= render partial: 'users/relationships/relationship', locals: { user: @post.user} %>
-</div>
-<% end %>
-
-</div>
-
-
-
-<div class="col-xs-6 col-xs-push-2">
-  <h1>
-    <div id="favorites_buttons_<%= @post.id %>">
-  <%= render partial: 'users/favorites/favorite', locals: { post: @post} %>
+<div class="card mt-5" style="width: 100%;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @post.title %></h5>
+    <p class="card-text"><%= @post.body %></p>
+    <%= @post.address %>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-6">
+        <%= attachment_image_tag @post, :image, :fill, 400, 400, fallback: "no_image.jpg",size:"100×100" %>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6">
+        <div id="map"></div>
+      </div>
     </div>
-  </h1>
-<div id="map"></div>
+    <div class="row">
+      閲覧数:<%= @post.impressions_count %>
+      投稿者:<%= link_to users_user_path(@post.user) do %>
+              <%= @post.user.name %>
+            <% end %>
+      <% if @post.user != current_user %>
+        <div id="follow_buttons_<%= @post.user_id %>">
+          <%= render partial: 'users/relationships/relationship', locals: { user: @post.user} %>
+        </div>
+      <% end %>
+      <div id="favorites_buttons_<%= @post.id %>">
+        <%= render partial: 'users/favorites/favorite', locals: { post: @post} %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="card mt-5" style="width: 100%;">
+  <div class="card-body">
+    <div>
+      <%= render partial: 'users/post_comments/form', locals: { post_comment: @post_comment, post: @post } %>
+    </div>
+
+    <div id="comments_area">
+      <%= render partial: 'users/post_comments/index', locals: { post_comments: @post_comments } %>
+    </div>
+  </div>
+</div>
+
 
 <style>
 #map{
-  height: 500px;
-  width:500px;
+  height: 400px;
+  width: 400px;
 }
+
+
 </style>
 <script type="text/javascript">
     function initMap() {
@@ -70,23 +82,6 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
 </script>
-<h2>住所</h2>
-<h2><%= @post.address %></h2>
-</div>
-</div>
-
-<div>
- <%= render partial: 'users/post_comments/form', locals: { post_comment: @post_comment, post: @post } %>
-</div>
-
-
-
-<div id="comments_area">
-  <%= render partial: 'users/post_comments/index', locals: { post_comments: @post_comments } %>
-</div>
-
-
-
 
 
 

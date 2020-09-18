@@ -3,5 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .ranking {
-	
+	padding: 10px;
+}
+
+.line_wrap {
+    overflow: hidden;
+  height: 3.6em /* 2em（行）x line-heightの1.8 */
+  font-size: 16px;
+  line-height: 1.8;
 }

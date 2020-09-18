@@ -41,7 +41,7 @@
           <a class="navbar-brand">HiraPedia</a>
         </header>
         <% if user_signed_in? %>
-        <ul class="list-group">
+        <ul class="list-group ml-5">
           <a class="list-group-item"><%= link_to "マイページ", users_user_path(current_user) %></a>
           <a class="list-group-item"><%= link_to "記事一覧", users_post_index_path %></a>
           <a class="list-group-item"><%= link_to "新規投稿", new_users_post_path %></a>
@@ -51,14 +51,14 @@
         </ul>
 
         <% elsif admin_signed_in? %>
-        <ul class="list-group">
+        <ul class="list-group ml-5">
           <a class="list-group-item"><%= link_to "枚方記事一覧", admins_facilities_path %></a>
           <a class="list-group-item"><%= link_to "枚方記事新規投稿", new_admins_facility_path %></a>
           <a class="list-group-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></a>
         </ul>
 
         <% else %>
-        <ul class="list-group">
+        <ul class="list-group ml-5">
           <a class="list-group-item"><%= link_to "Home", users_root_path %></a>
           <a class="list-group-item"><%= link_to "about", users_about_path %></a>
           <a class="list-group-item"><%= link_to "Sign Up", new_user_registration_path %></a>
