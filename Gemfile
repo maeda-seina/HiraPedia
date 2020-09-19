@@ -82,6 +82,8 @@ gem 'impressionist', '~>1.6.1'
 gem "chartkick"
 gem 'groupdate'
 gem 'omniauth-google-oauth2'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
 
 gem 'dotenv-rails'
 group :production do

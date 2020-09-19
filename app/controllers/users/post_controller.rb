@@ -23,6 +23,7 @@ class Users::PostController < ApplicationController
     @post.user_id = current_user.id
 
     if @post.save
+      flash[:success] = "登録が完了しました。"
       redirect_to users_post_index_path
     else
       render 'new'
@@ -34,6 +35,7 @@ class Users::PostController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
+      flash[:success] = "投稿を更新しました。"
     redirect_to users_user_path(current_user)
     else
     render 'edit'
@@ -48,6 +50,7 @@ class Users::PostController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    flash[:success] = "投稿を削除しました。"
     redirect_to users_user_path(current_user)
   end
 
