@@ -4,6 +4,11 @@ Rails.application.routes.draw do
     root 'home#top'
     get 'about' => 'home#about'
     post '/guest_sign_in' => 'home#guest'
+    get 'inquiry/index' => 'inquiry#index'
+    get 'inquiry/confirm' => 'inquiry#confirm'
+    post 'inquiry/confirm' => 'inquiry#confirm'
+    get 'inquiry/thanks' => 'inquiry#thanks'
+    post 'inquiry/thanks' => 'inquiry#thanks'
     resources :notifications, only: :index
     resources :messages,only: [:create]
     resources :rooms,only: [:create, :show, :index]

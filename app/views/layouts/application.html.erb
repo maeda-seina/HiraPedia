@@ -57,6 +57,7 @@
           <a class="list-group-item"><%= link_to "枚方", users_facilities_path %></a>
           <a class="list-group-item"><%= link_to "通知", users_notifications_path %></a>
           <a class="list-group-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
+          <a class="list-group-item"><%= link_to "お問い合わせ", users_inquiry_index_path %></a>
         </ul>
 
         <% elsif admin_signed_in? %>
@@ -73,6 +74,7 @@
           <a class="list-group-item"><%= link_to "Sign Up", new_user_registration_path %></a>
           <a class="list-group-item"><%= link_to "Log In", new_user_session_path %></a>
           <a class="list-group-item"><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %></a>
+          <a class="list-group-item"><%= link_to "お問い合わせ", users_inquiry_index_path %></a>
         </ul>
         <% end %>
 
