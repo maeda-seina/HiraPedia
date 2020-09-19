@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     get 'about' => 'home#about'
     post '/guest_sign_in' => 'home#guest'
     resources :notifications, only: :index
+    resources :messages,only: [:create]
+    resources :rooms,only: [:create, :show, :index]
     resources :users,only: [:show,:edit,:update,:index] do
       resource :relationships, only: [:create, :destroy]
       get :follows, on: :member
