@@ -44,7 +44,7 @@
             <li class="nav-item">
               <% if user_signed_in? %>
               <%= link_to users_user_path(current_user) do %>
-                <%= image_tag "/images/HiraPedia-logo.png" %>
+                <%= image_tag "HiraPedia-logo.png" %>
               <% end %>
 
               <% elsif admin_signed_in? %>
