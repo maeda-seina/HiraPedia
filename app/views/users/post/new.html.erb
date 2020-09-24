@@ -15,7 +15,7 @@
   	  	  	<div>
               <label id="image">
   	  	  	    <%= f.attachment_field :image, id: "image-form" %>
-                <p class="image-text">画像をクリックしてファイルを選択してください</p>
+                <p class="image-text">クリックしてファイルを選択してください</p>
                 <div id="image-preview">
                   <img src="/assets/no_image-72379a4da21cb04a58337cf92d85bc39f8d534cbc78254c2085acaca82236bfa.jpg" >
                 </div>
@@ -81,5 +81,8 @@
 </div>
 
 <style>
-
+img {
+  height: 150px;
+  width: 150px;
+}
 </style>
