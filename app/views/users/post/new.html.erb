@@ -9,11 +9,17 @@
   	  	<thead>
   	  	<tr>
   	  	  <th>
-  	  	  	<%= attachment_image_tag @post, :image, class:"img-square",fallback: "no_image.jpg",size:"100×100" %>
+  	  	  	<%= f.label :"画像" %>
   	  	  </th>
   	  	  <th>
   	  	  	<div>
-  	  	  	  <%= f.attachment_field :image %>
+              <label id="image">
+  	  	  	    <%= f.attachment_field :image, id: "image-form" %>
+                <p class="image-text">画像をクリックしてファイルを選択してください</p>
+                <div id="image-preview">
+                  <img src="/assets/no_image-72379a4da21cb04a58337cf92d85bc39f8d534cbc78254c2085acaca82236bfa.jpg" >
+                </div>
+              </label>
   	  	  	</div>
   	  	  </th>
   	  	</tr>
@@ -73,3 +79,7 @@
 <% end %>
 </div>
 </div>
+
+<style>
+
+</style>
