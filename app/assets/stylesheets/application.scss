@@ -15,12 +15,24 @@
 @import 'font-awesome-sprockets';
 @import "font-awesome";
 
-
+.top{
+  width: 500px;
+  height: 500px;
+}
 .container{
   width:1170px;
   // padding:15px;
   margin:auto;
   height: 800px;
+}
+
+.nav-item img {
+  width: 150px;
+  height: 70px
+}
+
+.nav-name {
+  float: left;
 }
 
 input#image-form {
@@ -33,6 +45,7 @@ footer{
   // position: absolute;
   // bottom: 0;
   text-align: center;
+  margin-top: 50px;
 }
 
 

@@ -84,10 +84,15 @@
     </div>
   </div>
 </div>
-
-<%= paginate @posts %>
-
 </div>
+
+<nav aria-label="Page navigation example">
+<ul class="pagination justify-content-center pegination-lg">
+  <li class="page-item">
+    <%= paginate @posts %>
+  </li>
+</ul>
+</nav>
 
 
 

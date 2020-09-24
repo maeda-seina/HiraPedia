@@ -27,14 +27,6 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 
-    <% if user_signed_in? %>
-      <span class="nav-name">
-        <%= current_user.name %> さん、こんにちは！
-      </span>
-    <% end %>
-
-
-
 
     <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
       <header class="bmd-layout-header">
@@ -43,8 +35,29 @@
             <span class="sr-only">Toggle drawer</span>
             <i class="material-icons">menu</i>
           </button>
+          <% if user_signed_in? %>
+            <div class="nav-name">
+              <%= current_user.name %> さん、こんにちは！
+            </div>
+          <% end %>
           <ul class="nav navbar-nav">
-            <li class="nav-item">HiraPedia</li>
+            <li class="nav-item">
+              <% if user_signed_in? %>
+              <%= link_to users_user_path(current_user) do %>
+                <img src="/assets/HiraPedia-logo.png">
+              <% end %>
+
+              <% elsif admin_signed_in? %>
+              <%= link_to admins_facilities_path do %>
+                <img src="/assets/HiraPedia-logo.png">
+              <% end %>
+
+              <% else %>
+              <%= link_to users_root_path do %>
+                <img src="/assets/HiraPedia-logo.png">
+              <% end %>
+              <% end %>
+            </li>
           </ul>
         </div>
       </header>
