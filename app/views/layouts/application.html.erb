@@ -44,17 +44,17 @@
             <li class="nav-item">
               <% if user_signed_in? %>
               <%= link_to users_user_path(current_user) do %>
-                <img src="/assets/HiraPedia-logo.png">
+                <img src="/images/HiraPedia-logo.png">
               <% end %>
 
               <% elsif admin_signed_in? %>
               <%= link_to admins_facilities_path do %>
-                <img src="/assets/HiraPedia-logo.png">
+                <img src="/images/HiraPedia-logo.png">
               <% end %>
 
               <% else %>
               <%= link_to users_root_path do %>
-                <img src="/assets/HiraPedia-logo.png">
+                <img src="/images/HiraPedia-logo.png">
               <% end %>
               <% end %>
             </li>
@@ -63,7 +63,7 @@
       </header>
       <div id="dw-s2" class="bmd-layout-drawer bg-faded">
         <header>
-          <a class="navbar-brand"><img src="/assets/HiraPedia-logo.png"></a>
+          <a class="navbar-brand"><img src="/images/HiraPedia-logo.png"></a>
         </header>
         <% if user_signed_in? %>
         <ul class="list-group ml-5">
@@ -106,7 +106,7 @@
 
       <footer>
           Copyright (C) 2020 HiraPedia. All Rights Reserved.</br>
-          <img src="/assets/HiraPedia-logo.png">
+          <img src="/images/HiraPedia-logo.png">
           <a class="insta"href="https://www.instagram.com/?hl=ja"><i class="fab fa-instagram"></i></a>
           <a href="https://twitter.com/login?lang=ja"><i class="fab fa-twitter"></i></a>
           <a class="youtube" href="https://www.youtube.com/user/YouTubeJapan"><i class="fab fa-youtube"></i></a>
