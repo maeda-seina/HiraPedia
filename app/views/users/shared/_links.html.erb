@@ -21,7 +21,7 @@
 <%- if devise_mapping.omniauthable? %>
 <div class="btn btn-outline-primary">
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Googleアカウントで新規登録", omniauth_authorize_path(resource_name, provider), class: "fab fa-google" %><br />
+    <%= link_to "googleアカウントで新規登録", omniauth_authorize_path(resource_name, provider) %><br />
   <% end %>
 </div>
 <% end %>

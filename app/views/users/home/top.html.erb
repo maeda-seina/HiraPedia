@@ -1,12 +1,7 @@
-<div class="top-wrapper">
+<div class="top-wrapper mt-5">
 	<div class="container">
-        <h1>HiraPedia</h1>
-        <p>HiraPediaは枚方の好きな場所を投稿できるサイトです</p>
-        <div class="btn-wrapper">
-        <%= link_to new_user_registration_path do %>
-          <div class="btn btn-primary btn-raised ">新規会員登録はこちら</div>
-        <% end %>
-        </div>
+    <div class="row">
+      <div class="row col-md-6 mt-5">
     <div class="top">
       <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
@@ -14,10 +9,10 @@
             <img class="d-block w-100" src="/assets/hirakata.jpg" alt="First slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="/assets/a.jpg" alt="Second slide">
+            <img class="d-block w-100" src="/assets/kasen.jpg" alt="Second slide">
           </div>
           <div class="carousel-item">
-            <img class="d-block w-100" src="/assets/HiraPedia-logo.png" alt="Third slide">
+            <img class="d-block w-100" src="/assets/hirapa.jpg" alt="Third slide">
           </div>
         </div>
       <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -31,18 +26,35 @@
       </div>
     </div>
   </div>
+    <div class="col-md-6 m-auto">
+        <h1>HiraPedia</h1>
+        <p>HiraPediaは枚方の好きな場所を投稿できるサイトです</p>
+        <div class="btn-wrapper">
+        <%= link_to new_user_registration_path do %>
+          <div class="btn btn-primary btn-raised ">新規会員登録はこちら</div>
+        <% end %>
+        </div>
+      </div>
+  </div>
+</div>
 </div>
 <div class="lesson-wrapper">
 	<div class="container">
+    <div class="row">
+      <div class="col-mx-6 mx-auto">
         <div class="heading">
           <h2>Hirapediaとは？</h2>
         </div>
         <div class="lessons"></div>
             <p class="txt-contents"></p>
+        </div>
+      </div>
   </div>
 </div>
 <div class="message-wrapper">
-	<div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-mx-6 mx-auto">
         <div class="heading">
           <h2>さぁ、投稿してみよう！</h2>
           <h3>登録に必要な時間は1分程度です</h3>
@@ -51,6 +63,8 @@
           <span class="btn btn-primary btn-raised btn-lg mr-3">新規会員登録</span>
         <% end %>
       </div>
+    </div>
+  </div>
 </div>
 
 

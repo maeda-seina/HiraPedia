@@ -35,6 +35,11 @@
   float: left;
 }
 
+header a img {
+  width: 150px;
+  height: 70px;
+}
+
 input#image-form {
 	display: none;
 }
@@ -45,9 +50,13 @@ footer{
   // position: absolute;
   // bottom: 0;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
+footer img {
+  width: 100px;
+  height: 40px;
+}
 
 
 
