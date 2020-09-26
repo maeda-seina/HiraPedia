@@ -9,7 +9,7 @@
   <div class="row col-md-8 col-sm-12">
     <% @posts.each do |p| %>
     <div class="col-12 col-md-4">
-      <div class="card mt-5 ml-5" style="width: 100%;">
+      <div class="card mt-5 ml-5 mb-5" style="width: 100%;">
         <%= link_to users_post_path(p) do %>
           <%= attachment_image_tag p, :image, :fill, 250, 250, fallback: "no_image.jpg",size:"100×100", class:"card-img-top" %>
         <% end %>
