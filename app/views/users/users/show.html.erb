@@ -27,7 +27,7 @@
           <% if @user.id == current_user.id %>
           <% else %>
             <% if @isRoom == true %>
-              <%= link_to "DM送る",users_room_path(@roomId),class: "btn btn-raised btn-primary" %>
+              <%= link_to "DM",users_room_path(@roomId),class: "btn btn-raised btn-primary" %>
             <% else %>
               <%= form_with model:@room, url: users_rooms_path, local: true do |f| %>
                 <%= fields_for @entry do |e| %>
