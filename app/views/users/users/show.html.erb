@@ -2,7 +2,7 @@
 <div class="a card mt-5">
 <h3 class="mt-5 ml-5">
   <span class="badge badge-pill badge-primary">ユーザー詳細</span>
-  <span class="badge badge-pill badge-primary">投稿詳細</span>
+  <span class="menu badge badge-pill badge-primary ml-5">投稿一覧</span>
 </h3>
 
 
@@ -48,9 +48,9 @@
   </div>
 
   <div class="row col-md-8 col-sm-12">
-    <% @user.posts.each do |post| %>
+    <% @posts.each do |post| %>
     <div class="col-12 col-md-4">
-      <div class="card mt-5 ml-5 mr-5" style="width: 90%;">
+      <div class="card mt-5 ml-2 mr-5" style="width: 90%;">
         <%= link_to users_post_path(post) do %>
           <%= attachment_image_tag post, :image, :fill, 250, 250, fallback: "no_image.jpg",size:"100×100", class:"card-img-top" %>
         <% end %>
@@ -65,13 +65,20 @@
       </div>
     </div>
     <% end %>
+    <div class="paginate mx-auto">
+      <%= paginate @posts %>
+    </div>
   </div>
 
+  <h3 class="ml-5 mb-5">
+    <span class="badge badge-pill badge-primary ml-3">お気に入り一覧</span>
+  </h3>
 
-  <div class="row col-md-8 col-sm-12">
+
+  <div class="row col-md-12 col-sm-12">
     <% @favorite_posts.each do |favorite| %>
-    <div class="col-12 col-md-4-push col-md-4">
-      <div class="card mt-5 ml-5" style="width: 100%;">
+    <div class="col-12 col-md-3 mx-auto">
+      <div class="card mx-auto" style="width: 90%;">
         <%= link_to users_post_path(favorite) do %>
           <%= attachment_image_tag favorite, :image, :fill, 250, 250, fallback: "no_image.jpg",size:"100×100", class:"card-img-top" %>
         <% end %>
@@ -84,9 +91,26 @@
     </div>
     <% end %>
   </div>
-
-
-
 </div>
-</div>
+<div class="mx-auto mt-5">
+      <%= paginate @favorite_posts %>
+    </div>
+
+<style>
+.a {
+  background-color: ;
+}
+
+.line_wrap {
+  overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.menu {
+  position: absolute;
+  right: 600px;
+}
+
+</style>
 

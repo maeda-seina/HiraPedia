@@ -6,7 +6,8 @@ class Users::UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @favorite_posts = @user.favorite_posts
+    @posts = @user.posts.page(params[:page]).per(3)
+    @favorite_posts = @user.favorite_posts.page(params[:page]).per(3)
 
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @user.id)

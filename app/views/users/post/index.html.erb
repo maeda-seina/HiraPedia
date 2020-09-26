@@ -21,6 +21,9 @@
       </div>
     </div>
     <% end %>
+    <div class="pagenate mx-auto">
+      <%= paginate @posts %>
+    </div>
   </div>
 
 
@@ -86,13 +89,6 @@
 </div>
 </div>
 
-<nav aria-label="Page navigation example">
-<ul class="pagination justify-content-center pegination-lg">
-  <li class="page-item">
-    <%= paginate @posts %>
-  </li>
-</ul>
-</nav>
 
 
 

@@ -12,5 +12,5 @@ $(function() { 
       $("#image-preview").append(buildImg(blobUrl)); 
       // $("img").css("border-radius","50%"); 
       // if($("img")
-  }) 
+  })
 }) 
