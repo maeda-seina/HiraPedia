@@ -1,3 +1,6 @@
+<div class="card mx-auto mt-5" style="width: 100%;">
+  <div class="card-body mx-auto">
+
 <%= form_with model:@post, url: users_post_path, local:true do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
   <div class="row">
@@ -10,7 +13,7 @@
   	  	  </th>
   	  	  <th>
   	  	  	<div>
-  	  	  	  <%= f.attachment_field :image %>
+  	  	  	  <%= f.attachment_field :image, class: "form-control" %>
   	  	  	</div>
   	  	  </th>
   	  	</tr>
@@ -19,7 +22,7 @@
   	      	<%= f.label :"タイトル" %>
   	      </th>
   	      <th>
-  	      	<%= f.text_field :title, placeholder: "タイトル" %>
+  	      	<%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
   	      </th>
   	  	</tr>
   	  	<tr>
@@ -27,7 +30,7 @@
   	  	  	<%= f.label :"内容" %>
   	  	  </th>
   	  	  <th>
-  	  	  	<%= f.text_area :body, placeholder: "内容" %>
+  	  	  	<%= f.text_area :body, placeholder: "内容", class: "form-control" %>
   	  	  </th>
   	  	</tr>
   	  	<tr>
@@ -35,12 +38,12 @@
   	  		<%= f.label :"住所" %>
   	  	  </th>
   	  	  <th>
-  	  	  	<%= f.text_area :address, placeholder: "住所" %>
+  	  	  	<%= f.text_area :address, placeholder: "住所", class: "form-control" %>
   	  	  </th>
   	  	</tr>
   	  	<tr>
   	  	  <th>
-  	  	  	<%= f.submit "更新" %>
+  	  	  	<%= f.submit "更新",class:"btn btn-outline-info" %>
   	  	  </th>
   	  	</tr>
         <tr>
@@ -53,3 +56,6 @@
   	</div>
   </div>
 <% end %>
+
+</div>
+</div>

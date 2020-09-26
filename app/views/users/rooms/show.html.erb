@@ -1,15 +1,27 @@
+<div class="card mx-auto mt-5" style="width: 80%;">
+  <div class="card-body mx-auto">
+
+
 <h1>DM</h1>
 
 <h4>参加者</h4>
 <% @entries.each do |e| %>
-  <h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.name%>さん</a></strong></h5>
+  <h5><strong>
+    <%= link_to users_user_path(e.user.id) do %>
+      <%= e.user.name%>さん
+    <% end %>
+  </strong></h5>
 <% end %>
 
 <hr>
 <% if @messages.present? %>
   <% @messages.each do |m| %>
     <strong><%= m.content %></strong>
-    <small>by <strong><a href="/users/<%= m.user_id %>"><%= m.user.name %>さん</a></strong></small>
+    <small>by <strong>
+      <%= link_to users_user_path(m.user.id) do %>
+        <%= m.user.name %>さん
+      <% end %>
+    </strong></small>
     <hr>
   <% end %>
 <% else %>
@@ -17,8 +29,10 @@
 <% end %>
 
 <%= form_with model: @message, url: users_messages_path, local: true do |f| %>
-  <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
+  <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 70, class: "form-control" %>
   <%= f.hidden_field :room_id, :value => @room.id %>
   <br>
-  <%= f.submit "投稿する" %>
+  <%= f.submit "投稿する", class: "btn btn-outline-success" %>
 <% end %>
+</div>
+</div>

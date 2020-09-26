@@ -1,4 +1,4 @@
-<div class="card mx-auto mt-5" style="width: 50%;">
+<div class="card mx-auto mt-5" style="width: 80%;">
   <div class="card-body mx-auto">
 
 <%= form_with model:@post, url: users_post_index_path, local:true do |f| %>
@@ -30,7 +30,7 @@
   	      <th>
               <div class="form-group">
                 <label for="exampleInputEmail1" class="bmd-label-floating">タイトル</label>
-                  <%= f.text_field :title %>
+                  <%= f.text_field :title, class: "form-control" %>
               </div>
   	      </th>
   	  	</tr>
@@ -41,7 +41,7 @@
   	  	  <th>
               <div class="form-group">
                 <label for="exampleInputEmail1" class="bmd-label-floating">内容</label>
-  	  	  	     <%= f.text_area :body %>
+  	  	  	     <%= f.text_area :body, class: "form-control" %>
               </div>
   	  	  </th>
   	  	</tr>
@@ -52,7 +52,7 @@
   	  	  <th>
               <div class="form-group">
                 <label for="exampleInputEmail1" class="bmd-label-floating">住所</label>
-  	  	  	     <%= f.text_area :address %>
+  	  	  	     <%= f.text_area :address, class: "form-control" %>
               </div>
   	  	  </th>
   	  	</tr>
@@ -63,7 +63,7 @@
           <th>
             <div class="form-group">
                 <label for="exampleInputEmail1" class="bmd-label-floating">行き方</label>
-                 <%= f.text_area :access %>
+                 <%= f.text_area :access, class: "form-control" %>
               </div>
           </th>
         </tr>
