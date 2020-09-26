@@ -14,8 +14,8 @@
           <%= link_to follows_users_user_path(id: @user.id) do %>
     	  	  <strong><%= @user.followings.count %></strong> フォロー中
           <% end %>
-    	  </span>
-    	  <span class="ml-3">
+    	  </span></br>
+    	  <span>
           <%= link_to followers_users_user_path(id: @user.id) do %>
     	  	  <strong><%= @user.followers.count %></strong> フォローワー
           <% end %>
