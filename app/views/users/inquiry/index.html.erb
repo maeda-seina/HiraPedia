@@ -1,6 +1,9 @@
+<div class="card mx-auto mt-5" style="width: 50%;">
+  <div class="card-body mx-auto">
+
 <%= form_for @inquiry, :url => users_inquiry_confirm_path do |f| %>
-  <div class="page-header">
-    <h1>お問い合わせ</h1>
+  <div class="page-header mt-5 ml-4 mb-5 badge badge-light">
+    <h1>お問い合わせフォーム</h1>
   </div>
 
   <% if @inquiry.errors.any? %>
@@ -14,6 +17,9 @@
     </div>
   <% end %>
 
+
+<div class="row mx-auto">
+<div class="col-xs-10 mx-auto">
   <table class="table">
     <tr>
       <th>名前<span class="badge badge-danger">必須</span></th>
@@ -28,5 +34,10 @@
       <td><%= f.text_area :message %></td>
     </tr>
   </table>
-  <%= f.submit '確認', class: 'btn btn-primary' %>
+  <%= f.submit '確認', class: 'btn btn-primary btn-raised' %>
 <% end %>
+
+</div>
+</div>
+</div>
+</div>

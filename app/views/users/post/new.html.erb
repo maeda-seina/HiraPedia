@@ -13,7 +13,7 @@
   	  	  </th>
   	  	  <th>
   	  	  	<div>
-              <label id="image">
+              <label id="image ml-5">
   	  	  	    <%= f.attachment_field :image, id: "image-form" %>
                 <p class="image-text">クリックしてファイルを選択してください</p>
                 <div id="image-preview">
@@ -68,8 +68,12 @@
           </th>
         </tr>
   	  	<tr>
+          <th>
+          </th>
   	  	  <th>
-  	  	  	<%= f.submit "投稿",class:"btn btn-outline-primary" %>
+            <div class="post ml-5">
+  	  	  	  <%= f.submit "投稿",class:"btn btn-outline-primary" %>
+            </div>
   	  	  </th>
   	  	</tr>
   	  </thead>

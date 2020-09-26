@@ -1,80 +1,91 @@
 <%= render partial: 'layouts/flash' %>
+<div class="a card mt-5">
+<h3 class="mt-5 ml-5">
+  <span class="badge badge-pill badge-primary">ユーザー詳細</span>
+  <span class="badge badge-pill badge-primary">投稿詳細</span>
+</h3>
+
 
 <div class="row">
-  <div class="row col-md-4">
-    <div class="col-12">
-      <div class="card mt-5" style="width: 100%; ">
-        <div class="card-body">
+  <div class="col-md-4 col-sm-12">
+    <div class="ml-5 mt-5">
+      <div class="card">
+      <span class="badge badge-primary">プロフィール</span>
+      <div class="card-body">
         <div id="follow_count_<%= @user.id %>">
           <%= render partial: "profile", user: @user %>
         </div>
         <% if @user == current_user %>
-        <div>
+        <div class="card-body">
           <%= link_to "編集する",edit_users_user_path(current_user), class: "btn btn-outline-success" %>
         </div>
         <% else %>
+        <div class="card-body">
         <div id="follow_buttons_<%= @user.id %>">
           <%= render partial: 'users/relationships/relationship', locals: { user: @user } %>
         </div>
-      <% end %>
+        <div class="">
+          <% if @user.id == current_user.id %>
+          <% else %>
+            <% if @isRoom == true %>
+              <%= link_to "DM送る",users_room_path(@roomId),class: "btn btn-raised btn-primary" %>
+            <% else %>
+              <%= form_with model:@room, url: users_rooms_path, local: true do |f| %>
+                <%= fields_for @entry do |e| %>
+                  <%= e.hidden_field :user_id, :value=> @user.id %>
+                <% end %>
+              <%= f.submit "チャットを始める" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+        </div>
+        </div>
+        <% end %>
+      </div>
+      </div>
     </div>
-  </div>
-</div>
-</div>
 
-<div class="col-md-8">
-  <h2>投稿一覧</h2>
-  <div class="card">
-  <% @user.posts.each do |post| %>
-    <%= link_to users_post_path(post) do %>
-      <%= attachment_image_tag post, :image, :fill, 100, 100, fallback: "no_image.jpg",size:"10×10" %>
-    <% end %>
-    <div class="card-body">
+  <div class="row col-md-8 col-sm-12">
+    <% @user.posts.each do |post| %>
+    <div class="col-12 col-md-4">
+      <div class="card mt-5 ml-5 mr-5" style="width: 90%;">
+        <%= link_to users_post_path(post) do %>
+          <%= attachment_image_tag post, :image, :fill, 250, 250, fallback: "no_image.jpg",size:"100×100", class:"card-img-top" %>
+        <% end %>
+        <div class="card-body">
           <h5 class="card-title"><%= post.title %></h5>
+          <p class="card-text line_wrap"><%= post.body %></p>
+          <%= link_to "詳細",users_post_path(post), class: "btn btn-primary" %>
           <% if @user == current_user %>
             <div><%= link_to "編集する",edit_users_post_path(post), class: "btn btn-outline-success" %></div>
           <% end %>
-    <% end %>
-  </div>
-</div>
-</div>
-
-<div class="col-md-8">
-    <h2>お気に入り一覧</h2>
-    <div class="card">
-      <% @favorite_posts.each do |favorite| %>
-      <div>
-        <%= link_to users_post_path(favorite) do %>
-      	  <%= attachment_image_tag favorite, :image, :fill, 300, 300, fallback: "no_image.jpg",size:"100×100" %>
-        <% end %>
+        </div>
       </div>
-      <div class="card-body">
-          <h5 class="card-title">
-        <%= favorite.title %>
-      </h5>
     </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<h1>ユーザー詳細</h1>
-
-<h2><%= @user.email %></h2>
-
-<% if @user.id == current_user.id %>
-
-<% else %>
-  <% if @isRoom == true %>
-    <%= link_to "チャットへ",users_room_path(@roomId) %>
-  <% else %>
-    <%= form_with model:@room, url: users_rooms_path, local: true do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, :value=> @user.id %>
-      <% end %>
-      <%= f.submit "チャットを始める" %>
     <% end %>
-  <% end %>
-<% end %>
+  </div>
 
+
+  <div class="row col-md-8 col-sm-12">
+    <% @favorite_posts.each do |favorite| %>
+    <div class="col-12 col-md-4-push col-md-4">
+      <div class="card mt-5 ml-5" style="width: 100%;">
+        <%= link_to users_post_path(favorite) do %>
+          <%= attachment_image_tag favorite, :image, :fill, 250, 250, fallback: "no_image.jpg",size:"100×100", class:"card-img-top" %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= favorite.title %></h5>
+          <p class="card-text line_wrap"><%= favorite.body %></p>
+          <%= link_to "詳細",users_post_path(favorite), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+
+
+</div>
+</div>
 

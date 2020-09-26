@@ -6,13 +6,13 @@
       <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <div class="d-block w-100"><%= image_tag "hirakata.jpg" %></div>
+            <div class="d-block w-100"><%= image_tag "hirakata.jpg", :size =>'500x500' %></div>
           </div>
           <div class="carousel-item">
-            <div class="d-block w-100"><%= image_tag "kasen.jpg" %></div>
+            <div class="d-block w-100"><%= image_tag "kasen.jpg", :size =>'500x500' %></div>
           </div>
           <div class="carousel-item">
-            <div class="d-block w-100"><%= image_tag "hirapa.jpg" %></div>
+            <div class="d-block w-100"><%= image_tag "hirapa.jpg", :size =>'500x500' %></div>
           </div>
         </div>
       <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -51,22 +51,21 @@
       </div>
   </div>
 </div>
-<div class="message-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-mx-6 mx-auto">
-        <div class="heading">
-          <h2>さぁ、投稿してみよう！</h2>
-          <h3>登録に必要な時間は1分程度です</h3>
-        </div>
-        <%= link_to new_user_registration_path do %>
-          <span class="btn btn-primary btn-raised btn-lg mr-3">新規会員登録</span>
-        <% end %>
-      </div>
-    </div>
+<div class="card text-center">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">まずは登録してみよう！</h5>
+    <p class="card-text">会員登録にかかる時間は1分程度です。</p>
+    <%= link_to new_user_registration_path do %>
+      <div class="btn btn-primary btn-raised">登録ページへ</div>
+    <% end %>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
   </div>
 </div>
-
 
 
 

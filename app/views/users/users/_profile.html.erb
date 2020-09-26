@@ -1,19 +1,23 @@
-<h2>プロフィール</h2>
+
   	<div>
-  		<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg",size:"10×10" %>
+  		<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg",size:"100×100", class:"card-img-top" %>
   	</div>
 
-  	  <div>name
-  	  	<%= @user.name %></div>
-  	  <div>introduction
-  	  	<%= @user.introduction %></div>
-  	  <div>フォロー数
-        <%= link_to follows_users_user_path(id: @user.id) do %>
-  	  	  <%= @user.followings.count %>
-        <% end %>
-  	  </div>
-  	  <div>フォロワー数
-        <%= link_to followers_users_user_path(id: @user.id) do %>
-  	  	  <%= @user.followers.count %>
-        <% end %>
-  	  </div>
+  	  <h1 class="card-title mt-4 ml-4">
+  	  	<%= @user.name %>
+      </h1>
+  	  <p class="card-body">
+  	  	<%= @user.introduction %>
+      </p>
+      <div class="card-body">
+    	  <span>
+          <%= link_to follows_users_user_path(id: @user.id) do %>
+    	  	  <strong><%= @user.followings.count %></strong> フォロー中
+          <% end %>
+    	  </span>
+    	  <span class="ml-3">
+          <%= link_to followers_users_user_path(id: @user.id) do %>
+    	  	  <strong><%= @user.followers.count %></strong> フォローワー
+          <% end %>
+    	  </span>
+      </div>
