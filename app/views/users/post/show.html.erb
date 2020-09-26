@@ -2,31 +2,31 @@
 
 <div class="card mt-5" style="width: 100%;">
   <div class="card-body">
-    <h5 class="card-title"><%= @post.title %></h5>
+      <h1 class="card-title"><%= @post.title %></h1>
     <p class="card-text"><%= @post.body %></p>
-    <%= @post.address %>
     <div class="row">
       <div class="col-12 col-sm-12 col-md-6">
-        <%= attachment_image_tag @post, :image, :fill, 400, 400, fallback: "no_image.jpg",size:"100×100" %>
-      </div>
-      <div class="col-12 col-sm-12 col-md-6">
-        <div id="map"></div>
-      </div>
-    </div>
-    <div class="row">
-      閲覧数:<%= @post.impressions_count %>
-      投稿者:<%= link_to users_user_path(@post.user) do %>
-              <%= @post.user.name %>
-            <% end %>
-      <% if @post.user != current_user %>
+        <%= attachment_image_tag @post, :image, :fill, 450, 450, fallback: "no_image.jpg",size:"100×100" %><br>
+        <p>
+          閲覧数:<%= @post.impressions_count %>
+        </p>
+        <h4>投稿者:<%= link_to users_user_path(@post.user) do %>
+                <%= @post.user.name %>
+              <% end %>
+        </h4>
+        <% if @post.user != current_user %>
         <div id="follow_buttons_<%= @post.user_id %>">
           <%= render partial: 'users/relationships/relationship', locals: { user: @post.user} %>
         </div>
-      <% end %>
-      <div id="favorites_buttons_<%= @post.id %>">
-        <%= render partial: 'users/favorites/favorite', locals: { post: @post} %>
+        <% end %>
+        <div id="favorites_buttons_<%= @post.id %>">
+          <%= render partial: 'users/favorites/favorite', locals: { post: @post} %>
+        </div>
       </div>
-
+      <div class="col-12 col-sm-12 col-md-6">
+      <div id="map"></div>
+      <h5 class="mt-5">住所： <%= @post.address %></h5>
+      </div>
     </div>
   </div>
 </div>
@@ -46,8 +46,8 @@
 
 <style>
 #map{
-  height: 400px;
-  width: 400px;
+  height: 450px;
+  width: 450px;
 }
 
 

@@ -1,4 +1,5 @@
 class Users::RoomsController < ApplicationController
+  before_action :authenticate_user!
 
 	def create
     @room = Room.create
@@ -14,7 +15,7 @@ class Users::RoomsController < ApplicationController
       @message = Message.new
       @entries = @room.entries
     else
-      redirect_back(fallback_location: users_users_path)
+      redirect_back(fallback_location: users_user_path(current_user))
     end
   end
 

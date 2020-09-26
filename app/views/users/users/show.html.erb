@@ -24,7 +24,6 @@
         <div id="follow_buttons_<%= @user.id %>">
           <%= render partial: 'users/relationships/relationship', locals: { user: @user } %>
         </div>
-        <div class="">
           <% if @user.id == current_user.id %>
           <% else %>
             <% if @isRoom == true %>
@@ -38,7 +37,6 @@
               <% end %>
             <% end %>
           <% end %>
-        </div>
         </div>
         </div>
         <% end %>

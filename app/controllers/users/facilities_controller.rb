@@ -1,4 +1,5 @@
 class Users::FacilitiesController < ApplicationController
+	before_action :authenticate_user!
   def index
     @facilities = Facility.all
     @most_viewed = Facility.order('impressions_count DESC').take(10)

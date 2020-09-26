@@ -1,4 +1,5 @@
 class Users::PostController < ApplicationController
+  before_action :authenticate_user!
 
 
   def index
@@ -45,6 +46,12 @@ class Users::PostController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @user = current_user
+    if @user == @post.user
+    render :edit
+    else
+    redirect_to users_user_path(current_user)
+    end
   end
 
   def destroy

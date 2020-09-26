@@ -1,4 +1,5 @@
 class Admins::FacilitiesController < ApplicationController
+  before_action :authenticate_admin!
 
   def new
     @facility = Facility.new

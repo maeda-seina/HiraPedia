@@ -6,10 +6,10 @@
   	  <h1 class="card-title mt-4 ml-4">
   	  	<%= @user.name %>
       </h1>
-  	  <p class="card-body">
-  	  	<%= @user.introduction %>
-      </p>
       <div class="card-body">
+  	  	<p>
+          <%= @user.introduction %>
+        </p>
     	  <span>
           <%= link_to follows_users_user_path(id: @user.id) do %>
     	  	  <strong><%= @user.followings.count %></strong> フォロー
