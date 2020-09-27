@@ -1,66 +1,81 @@
-<%= image_tag "like.jpg", :size =>'320x480' %>
-<%= image_tag "post.jpg", :size =>'320x480' %>
-<div class="card-columns">
+<div class="card mt-5">
+  <div class="image">
+    <%= image_tag "lake.jpg", class:"card-img" %>
+  </div>
+  <div class="card-img-overlay">
+    <h3 class="card-title"><strong>HiraPediaとは</strong></h3><br>
+    <p class="card-text">
+      枚方を愛する人たちのためのサイトです。<br><br><br>
+
+      枚方や枚方近郊で<br>
+      生まれ育った人<br>
+      働いていて馴染みがある人<br>
+      そんな人たちを対象としています。<br><br><br>
+
+      このサイトでは枚方や枚方近郊にある<br>
+      自分にとっての思い出の場所、お気に入りの場所や<br>
+      みんなに是非ともお勧めしたい場所（お店、景色、公園など）や<br>
+      普通知らないような穴場スポットのような所などを投稿することが出来て<br>
+      枚方好きな人たちと共有しあえるというサイトです。<br><br>
+    </p>
+  </div>
+</div>
+
+
+
+<div class="card-columns mt-5">
   <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <%= image_tag "post.jpg", :size =>'250x260', class:"card-img-top" %>
     <div class="card-body">
-      <h5 class="card-title">Card title that wraps to a new line</h5>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <h5 class="card-title"><i class="far fa-comment"></i> コメント</h5>
+      <p class="card-text text-muted">投稿に対してコメントを送ることが出来ます</p>
+      <p class="card-text"><small class="text-muted">Comment</small></p>
     </div>
   </div>
-  <div class="card p-3">
-    <blockquote class="blockquote mb-0 card-body">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">
-        <small class="text-muted">
-          Someone famous in <cite title="Source Title">Source Title</cite>
-        </small>
-      </footer>
-    </blockquote>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><i class="far fa-envelope"></i> DM</h5>
+      <p class="card-text text-muted">気になった人とDMで直接やり取りすることが出来ます</p>
+      <p class="card-text"><small class="text-muted">Private Chat</small></p>
+    </div>
   </div>
   <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <%= image_tag "sns.jpg", :size =>'250x250', class:"card-img-top" %>
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <h5 class="card-title"><i class="far fa-heart"></i> いいね</h5>
+      <p class="card-text text-muted">投稿に対していいねを送ることが出来ます</p>
+      <p class="card-text"><small class="text-muted">Like</small></p>
     </div>
   </div>
   <div class="card bg-primary text-white text-center p-3">
     <blockquote class="blockquote mb-0">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
-      <footer class="blockquote-footer">
-        <small>
-          Someone famous in <cite title="Source Title">Source Title</cite>
-        </small>
-      </footer>
+      <p>さあ今すぐ始めてみよう！</p>
+      <p class="card-text"><small>ユーザー登録にかかる時間は1分程です。</small></p>
+      <div class="">
+        <%= link_to "ユーザー登録ページへ", new_user_registration_path, class: "btn btn-outline-light" %>
+      </div>
     </blockquote>
   </div>
-  <div class="card text-center">
+  <div class="card">
+    <%= image_tag "fun.jpg", :size =>'250x250', class:"card-img-top" %>
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <h5 class="card-title"><i class="far fa-handshake"></i> フォロー</h5>
+      <p class="card-text text-muted">気になる人をフォローして投稿をチェックすることが出来ます</p>
+      <p class="card-text"><small class="text-muted">Follow</small></p>
     </div>
   </div>
   <div class="card">
-    <img class="card-img" src="..." alt="Card image">
-  </div>
-  <div class="card p-3 text-right">
-    <blockquote class="blockquote mb-0">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">
-        <small class="text-muted">
-          Someone famous in <cite title="Source Title">Source Title</cite>
-        </small>
-      </footer>
-    </blockquote>
-  </div>
-  <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <h5 class="card-title"><i class="fas fa-crown"></i> ランキング</h5>
+      <p class="card-text text-muted">閲覧数の多い投稿やいいね数の多い投稿をランキング形式で表示しています</p>
+      <p class="card-text"><small class="text-muted">Ranking</small></p>
     </div>
   </div>
 </div>
+
+
+<style>
+  .image {
+    opacity: 0.3;
+  }
+</style>

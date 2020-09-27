@@ -27,13 +27,13 @@
           <% if @user.id == current_user.id %>
           <% else %>
             <% if @isRoom == true %>
-              <%= link_to "DM",users_room_path(@roomId),class: "btn btn-raised btn-primary" %>
+              <%= link_to "DMへ",users_room_path(@roomId),class: "btn btn-raised btn-primary" %>
             <% else %>
               <%= form_with model:@room, url: users_rooms_path, local: true do |f| %>
                 <%= fields_for @entry do |e| %>
                   <%= e.hidden_field :user_id, :value=> @user.id %>
                 <% end %>
-              <%= f.submit "チャットを始める",class: "btn btn-raised btn-primary" %>
+              <%= f.submit "DMを始める",class: "btn btn-raised btn-primary" %>
               <% end %>
             <% end %>
           <% end %>
