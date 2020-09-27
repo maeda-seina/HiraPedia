@@ -5,7 +5,7 @@
   <span class="menu badge badge-pill badge-primary ml-5 mt-1">投稿一覧</span>
 </h3>
 
-
+<!-- プロフィール-------------------------------------------------------------------------------------------------------- -->
 <div class="row">
   <div class="col-md-3 col-sm-12">
     <div class="ml-5 mt-5">
@@ -43,7 +43,11 @@
       </div>
       </div>
     </div>
-  </div>
+    <% if @user == current_user %>
+      </div>
+    <% end %>
+
+<!-- 投稿一覧-------------------------------------------------------------------------------------------------------------- -->
 
   <div class="row col-md-9 col-sm-12">
     <% @posts.each do |post| %>
@@ -68,11 +72,10 @@
     </div>
   </div>
 
+<!-- お気に入り一覧----------------------------------------------------------------------------------------------------------- -->
   <h3 class="ml-5 mb-5">
     <span class="badge badge-pill badge-primary ml-3">お気に入り一覧</span>
   </h3>
-
-
   <div class="row col-md-12 col-sm-12">
     <% @favorite_posts.each do |favorite| %>
     <div class="col-12 col-md-3 mx-auto">
