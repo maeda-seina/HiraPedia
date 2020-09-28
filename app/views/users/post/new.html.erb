@@ -9,17 +9,11 @@
   	  	<thead>
   	  	<tr>
   	  	  <th>
-  	  	  	<%= f.label :"画像" %><span class="badge badge-danger">必須</span>
+  	  	  	<%= f.label :"画像" %><span class="mb-5 badge badge-danger">必須</span>
   	  	  </th>
   	  	  <th>
-  	  	  	<div>
-              <label id="image ml-5">
-  	  	  	    <%= f.attachment_field :image, id: "image-form" %>
-                <p class="image-text">クリックしてファイルを選択してください</p>
-                <div id="image-preview">
-                  <%= image_tag "no_image.jpg" %>
-                </div>
-              </label>
+  	  	  	<div class="mt-5 mb-5">
+  	  	  	  <%= f.attachment_field :image, id: "image-form" %>
   	  	  	</div>
   	  	  </th>
   	  	</tr>

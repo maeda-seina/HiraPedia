@@ -15,7 +15,7 @@ class Admins::FacilitiesController < ApplicationController
   end
 
   def index
-    @facilities = Facility.all
+    @facilities = Facility.all.page(params[:page]).per(6)
   end
 
   def show

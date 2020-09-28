@@ -1,7 +1,7 @@
 class Users::FacilitiesController < ApplicationController
 	before_action :authenticate_user!
   def index
-    @facilities = Facility.all
+    @facilities = Facility.all.page(params[:page]).per(6)
     @most_viewed = Facility.order('impressions_count DESC').take(10)
   end
 

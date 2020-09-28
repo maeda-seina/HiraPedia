@@ -1,19 +1,26 @@
-<%= attachment_image_tag @facility, :image, :fill, 300, 300, fallback: "no_image.jpg",size:"100×100" %>
+<div class="card mt-5">
+<div class="mx-auto mt-5">
+<%= attachment_image_tag @facility, :image, :fill, 1070, 300, fallback: "no_image.jpg",size:"100×100" %>
+<p>閲覧数:<%= @facility.impressions_count %></p>
+
+</div>
+<div class="card-body mt-3">
 <p>名称</p>
 <p><%= @facility.name %></p>
 <p><%= @facility.body %></p>
 <p>住所</p>
 <p><%= @facility.address %></p>
 
-<strong>閲覧数:</strong>
-  <%= @facility.impressions_count %>
-
+<div class="mt-5">
 <div id="map"></div>
+</div>
+</div>
+</div>
 
 <style>
 #map{
-  height: 150px;
-  width:270px;
+  height: 300px;
+  width: 1070px;
 }
 </style>
 <script type="text/javascript">
