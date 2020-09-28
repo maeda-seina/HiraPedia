@@ -5,9 +5,11 @@ class Post < ApplicationRecord
   has_many :notifications, dependent: :destroy
 	attachment :image
 
+  # GoogleAPI
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
+  # 通知機能
   is_impressionable counter_cache: true
 
   validates :title, presence: true

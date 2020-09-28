@@ -1,4 +1,2 @@
-// $("#comments_area").html("<%= j(render 'index', { post_comments: @post.comment }) %>")
-// $("textarea").val('')
-
+// Ajax処理
 $("#comments_area").html("<%= j(render partial: 'index, locals: { post_comments: @post.comment }) %>")

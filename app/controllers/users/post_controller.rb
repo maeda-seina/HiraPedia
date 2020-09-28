@@ -1,10 +1,11 @@
 class Users::PostController < ApplicationController
   before_action :authenticate_user!
 
-
   def index
     @posts = Post.all.page(params[:page]).per(6)
+    # 閲覧数ランキングを表示
     @most_viewed = Post.order('impressions_count DESC').take(10)
+    # いいねランキングを表示
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
   end
 
@@ -16,6 +17,7 @@ class Users::PostController < ApplicationController
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
     @post_comments = PostComment.all
+    # 閲覧数を集計
     impressionist(@post, :unique => [:session_hash])
   end
 
@@ -30,8 +32,6 @@ class Users::PostController < ApplicationController
       render 'new'
     end
   end
-
-
 
   def update
     @post = Post.find(params[:id])

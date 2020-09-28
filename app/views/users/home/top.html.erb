@@ -1,61 +1,60 @@
 <div class="top-wrapper mt-5">
-
-    <div class="row">
+　　<div class="row">
       <div class="row col-md-6 mt-3 mb-5">
-    <div class="top">
-      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="d-block w-100"><%= image_tag "hirakata.jpg", :size =>'500x500' %></div>
+          <div class="top">
+              <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+                  <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div class="d-block w-100"><%= image_tag "hirakata.jpg", :size =>'500x500' %></div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="d-block w-100"><%= image_tag "kasen.jpg", :size =>'500x500' %></div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="d-block w-100"><%= image_tag "hirapa.jpg", :size =>'500x500' %></div>
+                      </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                  </a>
+              </div>
           </div>
-          <div class="carousel-item">
-            <div class="d-block w-100"><%= image_tag "kasen.jpg", :size =>'500x500' %></div>
+  　　 </div>
+      <div class="col-md-6 m-auto">
+          <h1>HiraPedia</h1>
+          <p>HiraPediaは枚方の好きな場所を投稿できるサイトです</p>
+          <div class="btn-wrapper">
+              <%= link_to new_user_registration_path do %>
+                <div class="btn btn-primary btn-raised ">新規ユーザー登録はこちら</div>
+              <% end %>
           </div>
-          <div class="carousel-item">
-            <div class="d-block w-100"><%= image_tag "hirapa.jpg", :size =>'500x500' %></div>
+              <div class="mt-3">
+              <%= link_to new_user_session_path do %>
+                <div class="btn btn-primary btn-raised ">ログインする</div>
+              <% end %>
           </div>
-        </div>
-      <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-      </div>
-    </div>
-  </div>
-    <div class="col-md-6 m-auto">
-        <h1>HiraPedia</h1>
-        <p>HiraPediaは枚方の好きな場所を投稿できるサイトです</p>
-        <div class="btn-wrapper">
-        <%= link_to new_user_registration_path do %>
-          <div class="btn btn-primary btn-raised ">新規ユーザー登録はこちら</div>
-        <% end %>
-        </div>
-        <div class="mt-3">
-        <%= link_to new_user_session_path do %>
-          <div class="btn btn-primary btn-raised ">ログインする</div>
-        <% end %>
-        </div>
-        <div class="mt-3">
-          <%= link_to users_guest_sign_in_path, method: :post do %>
-            <div class="btn btn-outline-primary">まずはゲストユーザーとしてログインしてみる</div>
-          <% end %>
-        </div>
+          <div class="mt-3">
+              <%= link_to users_guest_sign_in_path, method: :post do %>
+                <div class="btn btn-outline-primary">まずはゲストユーザーとしてログインしてみる</div>
+              <% end %>
+          </div>
       </div>
   </div>
 </div>
+
 <div class="card text-center" >
     <div class="row">
       <div class="col-mx-6 mx-auto">
-        <div class="card-header">
-        </div>
+        <div class="card-header"></div>
         <div class="card-header mb-3">
           <h2>Hirapediaとは？</h2>
         </div>
-          <div class="card-body mx-auto mt-3 mb-3 text-muted">
+        <div class="card-body mx-auto mt-3 mb-3 text-muted">
             <h5>
               枚方や枚方近郊にあるおすすめスポットを投稿して共有したり<br><br>
               他の人の投稿を見たりして、楽しむことの出来るサイトです。<br><br>
@@ -64,13 +63,13 @@
               <%= link_to "こちら", users_about_path, class:"btn btn-outline-primary mx-auto" %><br><br>
               をクリック！
             </h5>
-          </div>
         </div>
       </div>
     </div>
+</div>
+
 <div class="card text-center mt-5 mb-5">
-  <div class="card-header">
-  </div>
+  <div class="card-header"></div>
   <div class="card-body">
     <h5 class="card-title">まずはユーザー登録して、投稿を見てみよう！</h5>
     <p class="card-text">会員登録にかかる時間は1分程度です。</p>
@@ -78,8 +77,7 @@
       <div class="btn btn-primary btn-raised">ユーザー登録ページへ</div>
     <% end %>
   </div>
-  <div class="card-footer text-muted">
-  </div>
+  <div class="card-footer text-muted"></div>
 </div>
 
 

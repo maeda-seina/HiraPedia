@@ -1,7 +1,4 @@
 
-
+// Ajax処理
 $('#favorites_buttons_<%= @post.id %>').html("<%= j(render partial: 'users/favorites/favorite', locals: {post: @post}) %>");
 
-// create.jsのlocalsの部分はfavorite.controllerで@post=Post.find
-// としてあげてset_postとかにしてpostの情報を渡してあげる。
-// create.jsとかはpostの下ではなくfavoriteの下にあるからちゃんと定義してあげないといけない。

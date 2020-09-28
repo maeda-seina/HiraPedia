@@ -5,8 +5,8 @@
       <h1 class="card-title"><%= @post.title %></h1>
     <p class="card-text"><%= @post.body %></p>
     <div class="row">
-      <div class="col-12 col-sm-12 col-md-6">
-        <%= attachment_image_tag @post, :image, :fill, 450, 450, fallback: "no_image.jpg",size:"100×100" %><br>
+      <div class="col-12 col-sm-12 col-md-6 mt-4">
+        <%= attachment_image_tag @post, :image, :fill, 500, 500, fallback: "no_image.jpg",size:"100×100" %><br>
         <p>
           閲覧数:<%= @post.impressions_count %>
         </p>
@@ -14,25 +14,32 @@
                 <%= @post.user.name %>
               <% end %>
         </h4>
+        <!-- Ajax処理（フォローフォロワー） -->
         <% if @post.user != current_user %>
         <div id="follow_buttons_<%= @post.user_id %>">
           <%= render partial: 'users/relationships/relationship', locals: { user: @post.user} %>
         </div>
         <% end %>
+        <!-- Ajax処理（フォローフォロワー） -->
+        <!-- Ajax処理（いいね機能） -->
         <div id="favorites_buttons_<%= @post.id %>">
           <%= render partial: 'users/favorites/favorite', locals: { post: @post} %>
         </div>
+        <!-- Ajax処理（いいね機能） -->
       </div>
+      <!-- GoogleMAP表示 -->
       <div class="col-12 col-sm-12 col-md-6">
-      <div id="map"></div>
-      <h5 class="mt-5">住所： <%= @post.address %></h5>
+      　　<div id="map"></div>
+      　　<h5 class="mt-5">住所： <%= @post.address %></h5>
       </div>
+      <!-- GoogleMAP表示 -->
     </div>
   </div>
 </div>
 
 <div class="card mt-5" style="width: 100%;">
   <div class="card-body">
+    <!-- Ajax処理（コメント機能） -->
     <div>
       <%= render partial: 'users/post_comments/form', locals: { post_comment: @post_comment, post: @post } %>
     </div>
@@ -40,18 +47,20 @@
     <div id="comments_area">
       <%= render partial: 'users/post_comments/index', locals: { post_comments: @post_comments } %>
     </div>
+    <!-- Ajax処理（コメント機能） -->
   </div>
 </div>
 
 
+<!-- css -->
 <style>
 #map{
-  height: 450px;
-  width: 450px;
+  height: 500px;
+  width: 500px;
 }
-
-
 </style>
+
+<!-- GoogleMAPjavascript -->
 <script type="text/javascript">
     function initMap() {
 

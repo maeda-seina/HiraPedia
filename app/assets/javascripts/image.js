@@ -1,4 +1,5 @@
 
+// 画像プレビュー機能
 $(function() { 
   const buildImg = (url)=> { 
       const html = `<div class="image"> 

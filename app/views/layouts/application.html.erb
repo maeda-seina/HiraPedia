@@ -8,11 +8,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <!-- アニメーション -->
+    <!-- cssアニメーション -->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
 
-    <!-- マテリアルデザイン -->
+    <!-- bootstrap for materialdesign -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
     <meta name="google-signin-client_id" content="GOOGLE_CLIENT_ID.apps.googleusercontent.com">
@@ -61,6 +61,7 @@
           </ul>
         </div>
       </header>
+
       <div id="dw-s2" class="bmd-layout-drawer bg-faded">
         <header>
           <a class="navbar-brand"><%= image_tag "HiraPedia-logo.png" %></a>
@@ -100,7 +101,6 @@
           <%= yield %>
         </div>
       </main>
-
 
     </div>
 

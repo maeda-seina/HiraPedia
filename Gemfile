@@ -65,24 +65,36 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-
+# ログイン認証機能
 gem 'devise'
+# ペジネーション
 gem 'kaminari'
+# 可愛いアイコン
 gem 'font-awesome-sass', '~> 5.4.1'
+# jquery使用のため
 gem 'jquery-rails'
+# デフォルトの言語を日本語に設定する
 gem 'rails-i18n'
+# 環境変数を管理
 gem 'dotenv-rails'
+# 画像アップロード
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+# デザイン
 gem 'bootstrap', '~> 4.1.1'
+# デバック用
 gem 'pry-rails'
 gem 'pry-byebug'
+# 住所を緯度経度にかえる
 gem 'geocoder'
+# ランキング用
 gem 'impressionist', '~>1.6.1'
+# グラフ化
 gem "chartkick"
 gem 'groupdate'
+# Google認証
 gem 'omniauth-google-oauth2'
-
+# デプロイ
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 

@@ -1,15 +1,15 @@
 class Users::UsersController < ApplicationController
   before_action :authenticate_user!
 
+  # グラフ表示のため
   def index
-
   end
 
   def show
   	@user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).per(3)
     @favorite_posts = @user.favorite_posts.page(params[:page]).per(3)
-
+    # DM機能
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @user.id)
     if @user.id == current_user.id

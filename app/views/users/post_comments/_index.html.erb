@@ -1,26 +1,25 @@
 <div class="col-sm-6">
 
-<table class="table">
-  <tr>
-    <th>ユーザー名</th>
-    <th>コメント内容</th>
-    <th></th>
-　</tr>
-<% @post.post_comments.each do |comment| %>
-  <tr>
-    <td>
-        <%= comment.user.name %>
-    </td>
-    <td>
-        <%= comment.comment %>
-    </td>
+  <table class="table">
+      <tr>
+        <th>ユーザー名</th>
+        <th>コメント内容</th>
+        <th></th>
+    　</tr>
+    <% @post.post_comments.each do |comment| %>
+      <tr>
+        <td>
+            <%= comment.user.name %>
+        </td>
+        <td>
+            <%= comment.comment %>
+        </td>
         <% if  comment.user_id == current_user.id %>
-    <td><%= link_to "削除",users_post_post_comment_path(@post, comment), method: :delete, remote: true , data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger " %></td>
+        <td><%= link_to "削除",users_post_post_comment_path(@post, comment), method: :delete, remote: true , data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger " %>
+        </td>
         <% end %>
-    </div>
-</div>
-  </tr>
-<% end %>
-</table>
+      </tr>
+    <% end %>
+  </table>
 
 </div>

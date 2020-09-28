@@ -1,54 +1,52 @@
 <div class="card mx-auto mt-5" style="width: 50%;">
   <div class="card-body mx-auto">
-
-<%= form_with model:@user, url: users_user_path, local:true do |f| %>
-<%= render 'layouts/error_messages', model: f.object %>
-  <div class="row">
-  	<div class="col-xs-10">
-  	  <table class="table">
-  	  	<thead>
-  	  	<tr>
-  	  	  <th>
-  	  	  	<%= attachment_image_tag @user, :image, :fill, 300, 300, fallback: "no_image.jpg",size:"100×100" %>
-  	  	  </th>
-  	  	  <th>
-  	  	  	<div>
-  	  	  	  <%= f.attachment_field :image, class: "form-control" %>
-  	  	  	</div>
-  	  	  </th>
-  	  	</tr>
-  	  	<tr>
-  	      <th>
-  	      	<%= f.label :"name" %>
-  	      </th>
-  	      <th>
-            <div class="form-group">
-              <label for="exampleInputEmail1" class="bmd-label-floating"></label>
-  	      	   <%= f.text_field :name, placeholder: "名前", class: "form-control" %>
-            </div>
-  	      </th>
-  	  	</tr>
-  	  	<tr>
-  	  	  <th>
-  	  	  	<%= f.label :"introduction" %>
-  	  	  </th>
-  	  	  <th>
-            <div class="form-group">
-              <label for="exampleInputEmail1" class="bmd-label-floating"></label>
-  	  	  	    <%= f.text_area :introduction, placeholder: "自己紹介", class: "form-control" %>
-            </div>
-  	  	  </th>
-  	  	</tr>
-  	  	<tr>
-  	  	  <th>
-  	  	  	<%= f.submit "更新",class:"btn btn-outline-info" %>
-  	  	  </th>
-  	  	</tr>
-  	  </thead>
-  	  </table>
-  	</div>
-  </div>
-<% end %>
-
-</div>
+    <%= form_with model:@user, url: users_user_path, local:true do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+      <div class="row">
+      	<div class="col-xs-10">
+      	  <table class="table">
+      	  	<thead>
+      	  	<tr>
+      	  	  <th>
+      	  	  	<%= attachment_image_tag @user, :image, :fill, 300, 300, fallback: "no_image.jpg",size:"100×100" %>
+      	  	  </th>
+      	  	  <th>
+      	  	  	<div>
+      	  	  	  <%= f.attachment_field :image, class: "form-control" %>
+      	  	  	</div>
+      	  	  </th>
+      	  	</tr>
+      	  	<tr>
+      	      <th>
+      	      	<%= f.label :"name" %>
+      	      </th>
+      	      <th>
+                <div class="form-group">
+                  <label for="exampleInputEmail1" class="bmd-label-floating"></label>
+      	      	   <%= f.text_field :name, placeholder: "名前", class: "form-control" %>
+                </div>
+      	      </th>
+      	  	</tr>
+      	  	<tr>
+      	  	  <th>
+      	  	  	<%= f.label :"introduction" %>
+      	  	  </th>
+      	  	  <th>
+                <div class="form-group">
+                  <label for="exampleInputEmail1" class="bmd-label-floating"></label>
+      	  	  	    <%= f.text_area :introduction, placeholder: "自己紹介", class: "form-control" %>
+                </div>
+      	  	  </th>
+      	  	</tr>
+      	  	<tr>
+      	  	  <th>
+      	  	  	<%= f.submit "更新",class:"btn btn-outline-info" %>
+      	  	  </th>
+      	  	</tr>
+      	  </thead>
+      	  </table>
+      	</div>
+      </div>
+    <% end %>
+　</div>
 </div>

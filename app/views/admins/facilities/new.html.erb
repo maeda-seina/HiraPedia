@@ -1,66 +1,63 @@
 <div class="card mx-auto mt-5" style="width: 80%;">
   <div class="card-body mx-auto">
-
-<%= form_with model:@facility, url: admins_facilities_path, local:true do |f| %>
-  <div class="row">
-  	<div class="col-xs-10">
-  	  <table class="table">
-  	  	<thead>
-  	  	<tr>
-  	  	  <th>
-  	  	  	<%= attachment_image_tag @facility, :image, class:"img-square",fallback: "no_image.jpg",size:"100×100" %>
-  	  	  </th>
-  	  	  <th>
-  	  	  	<div>
-              <div class="form-group">
-                <label for="exampleInputEmail1" class="bmd-label-floating"></label>
-  	  	  	     <%= f.attachment_field :image %>
-            　</div>
-  	  	  	</div>
-  	  	  </th>
-  	  	</tr>
-  	  	<tr>
-  	      <th>
-  	      	<%= f.label :"名前" %>
-  	      </th>
-  	      <th>
-            <div class="form-group">
-              <label for="exampleInputEmail1" class="bmd-label-floating"></label>
-  	      	   <%= f.text_field :name, placeholder: "名前", class: "form-control" %>
-            </div>
-  	      </th>
-  	  	</tr>
-  	  	<tr>
-  	  	  <th>
-  	  	  	<%= f.label :"内容" %>
-  	  	  </th>
-  	  	  <th>
-            <div class="form-group">
-              <label for="exampleInputEmail1" class="bmd-label-floating"></label>
-  	  	  	   <%= f.text_area :body, placeholder: "内容", class: "form-control" %>
-            </div>
-  	  	  </th>
-  	  	</tr>
-  	  	<tr>
-  	  	  <th>
-  	  		<%= f.label :"住所" %>
-  	  	  </th>
-  	  	  <th>
-            <div class="form-group">
-              <label for="exampleInputEmail1" class="bmd-label-floating"></label>
-  	  	  	   <%= f.text_area :address, placeholder: "住所", class: "form-control" %>
-            </div>
-  	  	  </th>
-  	  	</tr>
-  	  	<tr>
-  	  	  <th>
-  	  	  	<%= f.submit "投稿", class: "btn btn-outline-dark" %>
-  	  	  </th>
-  	  	</tr>
-  	  </thead>
-  	  </table>
-  	</div>
-  </div>
-<% end %>
-</div>
+    <%= form_with model:@facility, url: admins_facilities_path, local:true do |f| %>
+      <div class="row">
+      	<div class="col-xs-10">
+      	  <table class="table">
+      	  	<thead>
+      	  	<tr>
+      	  	  <th>
+      	  	  	<%= attachment_image_tag @facility, :image, class:"img-square",fallback: "no_image.jpg",size:"100×100" %>
+      	  	  </th>
+      	  	  <th>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1" class="bmd-label-floating"></label>
+      	  	  	     <%= f.attachment_field :image %>
+                　</div>
+      	  	  </th>
+      	  	</tr>
+      	  	<tr>
+      	      <th>
+      	      	<%= f.label :"名前" %>
+      	      </th>
+      	      <th>
+                <div class="form-group">
+                  <label for="exampleInputEmail1" class="bmd-label-floating"></label>
+      	      	   <%= f.text_field :name, placeholder: "名前", class: "form-control" %>
+                </div>
+      	      </th>
+      	  	</tr>
+      	  	<tr>
+      	  	  <th>
+      	  	  	<%= f.label :"内容" %>
+      	  	  </th>
+      	  	  <th>
+                <div class="form-group">
+                  <label for="exampleInputEmail1" class="bmd-label-floating"></label>
+      	  	  	   <%= f.text_area :body, placeholder: "内容", class: "form-control" %>
+                </div>
+      	  	  </th>
+      	  	</tr>
+      	  	<tr>
+      	  	  <th>
+      	  		<%= f.label :"住所" %>
+      	  	  </th>
+      	  	  <th>
+                <div class="form-group">
+                  <label for="exampleInputEmail1" class="bmd-label-floating"></label>
+      	  	  	   <%= f.text_area :address, placeholder: "住所", class: "form-control" %>
+                </div>
+      	  	  </th>
+      	  	</tr>
+      	  	<tr>
+      	  	  <th>
+      	  	  	<%= f.submit "投稿", class: "btn btn-outline-dark" %>
+      	  	  </th>
+      	  	</tr>
+      	  </thead>
+      	  </table>
+      	</div>
+      </div>
+    <% end %>
+　</div>
 </div>

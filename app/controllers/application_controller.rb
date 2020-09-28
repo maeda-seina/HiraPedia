@@ -12,19 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource_or_scope)
-    # これではモデルがうまくとれなくエラーが出てしまう。
-    # case resource
-    #   when Admin
-    #   new_admin_session_path
-    #   when User
-    #   users_root_path
-    # end
-
-    # users_root_path
-
-    # new_admin_session_path
-
-    # この書き方だとうまくいく
     if resource_or_scope == :admin
       new_admin_session_path
     elsif resource_or_scope == :user

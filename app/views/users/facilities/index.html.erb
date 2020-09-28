@@ -2,61 +2,62 @@
 <%= render partial: 'layouts/flash' %>
 
 <div class="a card mt-5">
-<h3 class="mt-5 ml-5">
-  <span class="badge badge-pill badge-primary">枚方おすすめスポット一覧</span>
-</h3>
+  <h3 class="mt-5 ml-5">
+    <span class="badge badge-pill badge-primary">枚方おすすめスポット一覧</span>
+  </h3>
 
-<div class="row">
-  <div class="row col-md-8 col-sm-12">
-    <% @facilities.each do |f| %>
-    <div class="col-12 col-md-4">
-      <div class="card mt-5 ml-5 mb-5" style="width: 100%;">
-        <%= link_to users_facility_path(f) do %>
-          <%= attachment_image_tag f, :image, :fill, 250, 250, fallback: "no_image.jpg",size:"100×100", class:"card-img-top" %>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title"><%= f.name %></h5>
-          <%= link_to "詳細",users_facility_path(f), class: "btn btn-outline-primary" %>
+  <div class="row">
+    <div class="row col-md-8 col-sm-12">
+      <% @facilities.each do |f| %>
+          <div class="col-12 col-md-4">
+            <div class="card mt-5 ml-5 mb-5" style="width: 100%;">
+              <%= link_to users_facility_path(f) do %>
+                <%= attachment_image_tag f, :image, :fill, 250, 250, fallback: "no_image.jpg",size:"100×100", class:"card-img-top" %>
+              <% end %>
+              <div class="card-body">
+                <h5 class="card-title"><%= f.name %></h5>
+                <%= link_to "詳細",users_facility_path(f), class: "btn btn-outline-primary" %>
+              </div>
+            </div>
+          </div>
+      <% end %>
+          <div class="pagenate mx-auto">
+            <%= paginate @facilities %>
+          </div>
+    </div>
+
+
+    <div class="col-md-4 col-sm-12">
+      <div class="ml-5 mt-5">
+        <div class="card">
+          <span class="badge badge-primary">閲覧数ランキング</span>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>順位</th>
+                  <th>名前</th>
+                  <th>閲覧数</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @most_viewed.each.with_index(1) do |rank, i| %>
+                  <tr>
+                    <td><%= "#{i}" %></td>
+                    <td>
+                      <%= link_to users_facility_path(rank) do %>
+                        <%= rank.name %>
+                      <% end %>
+                    </td>
+                    <td><%= rank.impressions_count %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
         </div>
       </div>
     </div>
-    <% end %>
-    <div class="pagenate mx-auto">
-      <%= paginate @facilities %>
-    </div>
   </div>
-
-
-  <div class="col-md-4 col-sm-12">
-    <div class="ml-5 mt-5">
-      <div class="card">
-      <span class="badge badge-primary">閲覧数ランキング</span>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>順位</th>
-            <th>名前</th>
-            <th>閲覧数</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @most_viewed.each.with_index(1) do |rank, i| %>
-            <tr>
-              <td><%= "#{i}" %></td>
-              <td>
-                <%= link_to users_facility_path(rank) do %>
-                  <%= rank.name %>
-                <% end %>
-              </td>
-              <td><%= rank.impressions_count %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
 </div>
 
 

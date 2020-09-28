@@ -5,8 +5,9 @@ class Users::HomeController < ApplicationController
 	def about
 	end
 
+	# ゲストユーザー機能
 	def guest
-      user = User.find_or_create_by!(name: 'a', email: 'guest@example.com') do |user|
+      user = User.find_or_create_by!(name: 'ゲスト', email: 'guest@hirapedia.com') do |user|
       user.password = SecureRandom.urlsafe_base64
     end
     sign_in user

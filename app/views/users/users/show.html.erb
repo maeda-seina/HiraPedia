@@ -1,102 +1,108 @@
 <%= render partial: 'layouts/flash' %>
-<div class="a card mt-5">
-<h3 class="mt-5 ml-5">
-  <span class="badge badge-primary">ユーザー詳細</span>
-  <span class="menu badge badge-pill badge-primary ml-5 mt-1">投稿一覧</span>
-</h3>
+<div class="a card mt-5 mb-5">
+  <h3 class="mt-5 ml-5">
+    <span class="badge badge-primary">ユーザー詳細</span>
+    <span class="menu badge badge-pill badge-primary ml-5 mt-1">投稿一覧</span>
+  </h3>
 
 <!-- プロフィール-------------------------------------------------------------------------------------------------------- -->
-<div class="row">
-  <div class="col-md-3 col-sm-12">
-    <div class="ml-5 mt-5">
-      <div class="card mb-5">
-      <span class="badge badge-primary">プロフィール</span>
-      <div class="card-body">
-        <div id="follow_count_<%= @user.id %>">
-          <%= render partial: "profile", user: @user %>
-        </div>
-        <% if @user == current_user %>
-        <div class="card-body">
-          <%= link_to "編集する",edit_users_user_path(current_user), class: "btn btn-outline-success" %>
-        </div>
-        <% else %>
-        <div class="card-body">
-        <div id="follow_buttons_<%= @user.id %>">
-          <%= render partial: 'users/relationships/relationship', locals: { user: @user } %>
-        </div>
-          <% if @user.id == current_user.id %>
-          <% else %>
-            <% if @isRoom == true %>
-              <%= link_to "DMへ",users_room_path(@roomId),class: "btn btn-raised btn-primary" %>
-            <% else %>
-              <%= form_with model:@room, url: users_rooms_path, local: true do |f| %>
-                <%= fields_for @entry do |e| %>
-                  <%= e.hidden_field :user_id, :value=> @user.id %>
+  <div class="row mb-5">
+      <div class="col-md-3 col-sm-12">
+        <div class="ml-5 mt-5">
+          <div class="card mb-5">
+            <span class="badge badge-primary">プロフィール</span>
+            <div class="card-body">
+                <!-- Ajax処理（フォロー数） -->
+                <div id="follow_count_<%= @user.id %>">
+                  <%= render partial: "profile", user: @user %>
+                </div>
+                <!-- Ajax処理（フォロー数）ここまで -->
+                <div class="card-body">
+                <% if @user == current_user %>
+                    <%= link_to "編集する",edit_users_user_path(current_user), class: "btn btn-outline-success" %>
+                <% else %>
+                <!-- Ajax処理（フォロー機能） -->
+                    <div id="follow_buttons_<%= @user.id %>">
+                      <%= render partial: 'users/relationships/relationship', locals: { user: @user } %>
+                    </div>
                 <% end %>
-              <%= f.submit "DMを始める",class: "btn btn-raised btn-primary" %>
-              <% end %>
-            <% end %>
-          <% end %>
+                </div>
+                <!-- Ajax処理（フォロー機能）ここまで -->
+                <!-- DM機能 -->
+                <div class="card-body">
+                <% if @user.id == current_user.id %>
+                <% else %>
+                  <% if @isRoom == true %>
+                      <%= link_to "DMへ",users_room_path(@roomId),class: "btn btn-raised btn-primary" %>
+                  <% else %>
+                      <%= form_with model:@room, url: users_rooms_path, local: true do |f| %>
+                         <%= fields_for @entry do |e| %>
+                         <%= e.hidden_field :user_id, :value=> @user.id %>
+                         <% end %>
+                         <%= f.submit "DMを始める",class: "btn btn-raised btn-primary" %>
+                      <% end %>
+                  <% end %>
+                <% end %>
+                </div>
+                <!-- DM機能ここまで -->
+            </div>
+          </div>
         </div>
-        </div>
-        <% end %>
       </div>
-      </div>
-    </div>
-    <% if @user == current_user %>
-      </div>
-    <% end %>
 
 <!-- 投稿一覧-------------------------------------------------------------------------------------------------------------- -->
 
-  <div class="row col-md-9 col-sm-12">
-    <% @posts.each do |post| %>
-    <div class="col-12 col-md-4">
-      <div class="card mt-5" style="width: 100%;">
-        <%= link_to users_post_path(post) do %>
-          <%= attachment_image_tag post, :image, :fill, 250, 250, fallback: "no_image.jpg",size:"100×100", class:"card-img-top" %>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title"><%= post.title %></h5>
-          <p class="card-text line_wrap"><%= post.body %></p>
-          <%= link_to "詳細",users_post_path(post), class: "btn btn-outline-primary" %>
-          <% if @user == current_user %>
-            <div><%= link_to "編集する",edit_users_post_path(post), class: "btn btn-outline-success" %></div>
+    <div class="row col-md-9 col-sm-12">
+      <% @posts.each do |post| %>
+      <div class="col-12 col-md-4">
+        <div class="card mt-5" style="width: 100%;">
+          <%= link_to users_post_path(post) do %>
+            <%= attachment_image_tag post, :image, :fill, 250, 250, fallback: "no_image.jpg",size:"100×100", class:"card-img-top" %>
           <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= post.title %></h5>
+            <p class="card-text line_wrap"><%= post.body %></p>
+            <%= link_to "詳細",users_post_path(post), class: "btn btn-outline-primary" %>
+            <% if @user == current_user %>
+              <div><%= link_to "編集する",edit_users_post_path(post), class: "btn btn-outline-success" %></div>
+            <% end %>
+          </div>
         </div>
       </div>
+      <% end %>
+      <div class="paginate mx-auto">
+        <%= paginate @posts %>
+      </div>
     </div>
-    <% end %>
-    <div class="paginate mx-auto">
-      <%= paginate @posts %>
-    </div>
-  </div>
 
 <!-- お気に入り一覧----------------------------------------------------------------------------------------------------------- -->
-  <h3 class="ml-5 mb-5">
-    <span class="badge badge-pill badge-primary ml-3">お気に入り一覧</span>
-  </h3>
-  <div class="row col-md-12 col-sm-12">
-    <% @favorite_posts.each do |favorite| %>
-    <div class="col-12 col-md-3 mx-auto">
-      <div class="card mx-auto" style="width: 100%;">
-        <%= link_to users_post_path(favorite) do %>
-          <%= attachment_image_tag favorite, :image, :fill, 250, 250, fallback: "no_image.jpg",size:"100×100", class:"card-img-top" %>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title"><%= favorite.title %></h5>
-          <p class="card-text line_wrap"><%= favorite.body %></p>
-          <%= link_to "詳細",users_post_path(favorite), class: "btn btn-outline-primary" %>
+    <h3 class="ml-5 mb-5">
+      <span class="badge badge-pill badge-primary ml-3">お気に入り一覧</span>
+    </h3>
+    <div class="row col-md-12 col-sm-12">
+      <% @favorite_posts.each do |favorite| %>
+      <div class="col-12 col-md-3 mx-auto">
+        <div class="card mx-auto" style="width: 100%;">
+          <%= link_to users_post_path(favorite) do %>
+            <%= attachment_image_tag favorite, :image, :fill, 250, 250, fallback: "no_image.jpg",size:"100×100", class:"card-img-top" %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= favorite.title %></h5>
+            <p class="card-text line_wrap"><%= favorite.body %></p>
+            <%= link_to "詳細",users_post_path(favorite), class: "btn btn-outline-primary" %>
+          </div>
         </div>
       </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
+
 <div class="mx-auto mt-5">
       <%= paginate @favorite_posts %>
-    </div>
+</div>
 
+<!-- css -->
 <style>
 .a {
   background-color: ;
