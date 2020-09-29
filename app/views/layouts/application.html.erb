@@ -72,7 +72,11 @@
           <a class="list-group-item"><%= link_to "記事一覧", users_post_index_path %></a>
           <a class="list-group-item"><%= link_to "新規投稿", new_users_post_path %></a>
           <a class="list-group-item"><%= link_to "枚方", users_facilities_path %></a>
-          <a class="list-group-item"><%= link_to "通知", users_notifications_path %></a>
+          <a class="list-group-item"><%= link_to "通知", users_notifications_path %>
+            <% if unchecked_notifications.any? %>
+              <i class="fa fa-circle notification-circle"></i>
+            <% end %>
+          </a>
           <a class="list-group-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
           <a class="list-group-item"><%= link_to "お問い合わせ", users_inquiry_index_path %></a>
         </ul>
