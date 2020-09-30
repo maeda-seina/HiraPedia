@@ -6,7 +6,7 @@ class Users::PostController < ApplicationController
     # 閲覧数ランキングを表示
     @most_viewed = Post.order('impressions_count DESC').take(10)
     # いいねランキングを表示
-    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
   end
 
   def new
