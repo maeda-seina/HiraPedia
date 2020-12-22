@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-
-  namespace :users do
+  
+  scope module: 'users' do
     root 'home#top'
+  end
+  namespace :users do
     get 'about' => 'home#about'
     post '/guest_sign_in' => 'home#guest'
     get 'inquiry/index' => 'inquiry#index'
