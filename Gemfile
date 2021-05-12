@@ -99,9 +99,9 @@ gem 'ed25519'
 gem 'bcrypt_pbkdf'
 
 gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
-end
+# group :production do
+#   gem 'mysql2'
+# end
 
 
 
