@@ -1,14 +1,17 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
-class Users::PostCommentsControllerTest < ActionDispatch::IntegrationTest
-  test "should get create" do
-    get users_post_comments_create_url
-    assert_response :success
-  end
+module Users
+  class PostCommentsControllerTest < ActionDispatch::IntegrationTest
+    test 'should get create' do
+      get users_post_comments_create_url
+      assert_response :success
+    end
 
-  test "should get destroy" do
-    get users_post_comments_destroy_url
-    assert_response :success
+    test 'should get destroy' do
+      get users_post_comments_destroy_url
+      assert_response :success
+    end
   end
-
 end

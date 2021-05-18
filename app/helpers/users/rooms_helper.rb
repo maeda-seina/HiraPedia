@@ -1,2 +1,6 @@
-module Users::RoomsHelper
+# frozen_string_literal: true
+
+module Users
+  module RoomsHelper
+  end
 end

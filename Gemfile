@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -35,14 +37,15 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
@@ -55,7 +58,7 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # ログイン認証機能
 gem 'devise'
@@ -70,27 +73,25 @@ gem 'rails-i18n'
 # 環境変数を管理
 gem 'dotenv-rails'
 # 画像アップロード
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+gem 'refile-mini_magick'
 # デザイン
 gem 'bootstrap', '~> 4.1.1'
 # デバック用
-gem 'pry-rails'
 gem 'pry-byebug'
+gem 'pry-rails'
 # 住所を緯度経度にかえる
 gem 'geocoder'
 # ランキング用
 gem 'impressionist', '~>1.6.1'
 # グラフ化
-gem "chartkick"
+gem 'chartkick'
 gem 'groupdate'
 # Google認証
 gem 'omniauth-google-oauth2'
 # デプロイ
-gem 'ed25519'
 gem 'bcrypt_pbkdf'
-
-gem 'dotenv-rails'
+gem 'ed25519'
 
 group :production do
   gem 'pg', '1.1.4'

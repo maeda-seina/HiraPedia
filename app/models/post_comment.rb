@@ -1,7 +1,9 @@
-class PostComment < ApplicationRecord
-	belongs_to :post
-	belongs_to :user
-	has_many :notifications, dependent: :destroy
+# frozen_string_literal: true
 
-	validates :comment, presence: true
+class PostComment < ApplicationRecord
+  belongs_to :post
+  belongs_to :user
+  has_many :notifications, dependent: :destroy
+
+  validates :comment, presence: true
 end

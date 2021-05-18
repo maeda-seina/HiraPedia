@@ -1,0 +1,44 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+    - "vendor/**/*" # rubocop config/default.yml
+    - "db/schema.rb"
+  DisplayCopNames: true
+
+Rails:
+  Enabled: true
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 30
+
+LineLength:
+  Max: 200
+
+MethodLength:
+  CountComments: true
+  Max: 35
+
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - "db/migrate/*.rb"
+    - "config/routes.rb"
+
+Metrics/BlockLength:
+  CountComments: false
+  Exclude:
+    - "db/migrate/*.rb"
+    - "config/*.rb"
+    - "config/environments/*.rb"
+

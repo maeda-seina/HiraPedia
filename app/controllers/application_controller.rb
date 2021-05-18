@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-
   def after_sign_in_path_for(resource)
     case resource
-      when Admin
+    when Admin
       admins_facilities_path
-      when User
+    when User
       users_post_index_path
     end
   end
@@ -20,8 +21,8 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-  def configure_permitted_parameters
-  	devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-  end
 
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  end
 end
