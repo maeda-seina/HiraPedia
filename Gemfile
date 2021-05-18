@@ -89,9 +89,6 @@ gem 'chartkick'
 gem 'groupdate'
 # Google認証
 gem 'omniauth-google-oauth2'
-# デプロイ
-gem 'bcrypt_pbkdf'
-gem 'ed25519'
 
 group :production do
   gem 'pg', '1.1.4'
