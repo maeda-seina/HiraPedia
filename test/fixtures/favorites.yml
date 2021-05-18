@@ -1,8 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+alice_favorite:
   user_id: 1
   post_id: 1
+  post: alice_post
+  user: alice
 
 two:
   user_id: 1

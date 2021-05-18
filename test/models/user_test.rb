@@ -4,8 +4,8 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   test '#followed_by?' do
-    alice = User.new(email: 'alice@example.com')
-    bob = User.new(email: 'bob@example.com')
+    alice = users(:alice)
+    bob = users(:bob)
     assert_not alice.followed_by?(bob)
   end
 end
