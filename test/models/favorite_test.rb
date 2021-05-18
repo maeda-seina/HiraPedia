@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class FavotiteTest < ActiveSupport::TestCase
+class FavoriteTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -2,22 +2,21 @@
 
 one:
   user_id: 1
-  favorite_id: 1
-  post_comment_id: 1
   title: MyString
+  image_id: 1
   body: MyText
   address: MyString
   access: MyText
   latitude: 1.5
   longitude: 1.5
 
-two:
-  user_id: 1
-  favorite_id: 1
-  post_comment_id: 1
-  title: MyString
-  body: MyText
-  address: MyString
-  access: MyText
-  latitude: 1.5
-  longitude: 1.5
+# two:
+#   user_id: 1
+#   favorite_id: 1
+#   post_comment_id: 1
+#   title: MyString
+#   body: MyText
+#   address: MyString
+#   access: MyText
+#   latitude: 1.5
+#   longitude: 1.5

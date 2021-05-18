@@ -4,18 +4,18 @@ require 'test_helper'
 
 module Users
   class UsersControllerTest < ActionDispatch::IntegrationTest
+    test 'should get index' do
+      get users_users_url
+      assert_response :success
+    end
+
     test 'should get show' do
-      get users_users_show_url
+      get users_user_url(1)
       assert_response :success
     end
 
     test 'should get edit' do
-      get users_users_edit_url
-      assert_response :success
-    end
-
-    test 'should get update' do
-      get users_users_update_url
+      get edit_users_user_url(1)
       assert_response :success
     end
   end
